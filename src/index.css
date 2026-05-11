@@ -1,0 +1,544 @@
+/* ========================= */
+/*  FONT */
+/* ========================= */
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+
+/* ========================= */
+/*  GLOBAL */
+/* ========================= */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5.625rem; /* 90px */
+}
+
+img, video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ========================= */
+/*  FLUID SYSTEM */
+/* ========================= */
+:root {
+  --step--1: clamp(0.75rem, 1.2vw, 0.875rem);
+  --step-0:  clamp(0.875rem, 1.6vw, 1.125rem);
+  --step-1:  clamp(1.125rem, 2.5vw, 1.75rem);
+  --step-2:  clamp(1.75rem, 5vw, 3.75rem);
+  --step-3:  clamp(2.5rem, 8vw, 7.5rem);
+
+  --space-xs: clamp(0.25rem, 1vh, 0.625rem);
+  --space-sm: clamp(0.5rem, 2vh, 1rem);
+  --space-md: clamp(0.75rem, 3vh, 1.5rem);
+}
+
+/* ========================= */
+/*  BODY */
+/* ========================= */
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background: radial-gradient(circle at center, #061311, #020404);
+  color: #EFFFFA;
+  font-family: 'Inter', sans-serif;
+}
+
+@media (pointer: fine) {
+  body {
+    cursor: none;
+  }
+}
+
+/* ========================= */
+/*  DRONE */
+/* ========================= */
+.drone {
+  position: fixed;
+  width: 3.75rem; /* 60px */
+  height: 3.75rem;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 1;
+  filter: drop-shadow(0 0 0.125rem #8fffd6);
+}
+
+/* ========================= */
+/*  CENTER */
+/* ========================= */
+.center {
+  position: absolute;
+  width: 0.875rem; /* 14px */
+  height: 0.875rem;
+  background: #8fffd6;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* ========================= */
+/*  ARMS */
+/* ========================= */
+.arm {
+  position: absolute;
+  width: 1.375rem; /* 22px */
+  height: 0.09375rem; /* 1.5px */
+  background: #8fffd6;
+  top: 50%;
+  left: 50%;
+  transform-origin: left center;
+}
+.a1 { transform: rotate(45deg); }
+.a2 { transform: rotate(135deg); }
+.a3 { transform: rotate(225deg); }
+.a4 { transform: rotate(315deg); }
+
+/* ========================= */
+/*  ROTOR */
+/* ========================= */
+.rotor {
+  position: absolute;
+  right: -0.625rem; 
+  top: 50%;
+  width: 1.625rem; 
+  height: 1.625rem;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: spin 0.19s linear infinite;
+}
+
+.rotor::before,
+.rotor::after {
+  content: "";
+  position: absolute;
+  width: 0.875rem; 
+  height: 0.25rem; 
+  background: #078703;
+  border-radius: 100% 30% 100% 30%;
+  box-shadow: 0 0 0.375rem rgba(143,255,214,0.4);
+}
+
+.rotor::before {
+  transform: rotate(25deg) translateX(0.3125rem);
+}
+
+.rotor::after {
+  transform: rotate(205deg) translateX(0.3125rem);
+}
+
+@keyframes spin {
+  from { transform: translateY(-50%) rotate(0deg); }
+  to   { transform: translateY(-50%) rotate(360deg); }
+}
+
+
+
+
+/* MOBILE PERFORMANCE */
+@media (max-width: 768px) {
+  svg.signal-svg,
+  .antenna,
+  .signal-svg circle {
+    display: none !important;
+  }
+}
+
+/* ========================= */
+/*  BG TITLE */
+/* ========================= */
+.bg-title {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 17vw;
+  font-weight: 900;
+  letter-spacing: 1.25rem; /* 20px */
+  color: rgba(143,255,214,0.05);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* ========================= */
+/*  BLINK */
+/* ========================= */
+.blink {
+  color: #22c55e;
+  animation: blinkFx 1.5s infinite;
+}
+
+@keyframes blinkFx {
+  0%,100% { opacity:1; text-shadow:0 0 0.5rem rgba(34,197,94,0.8); }
+  50% { opacity:0.5; text-shadow:none; }
+}
+
+/* ========================= */
+/*  FORM */
+/* ========================= */
+.input-style {
+  width: 100%;
+  padding: 0.75rem 0.875rem;
+  font-size: 1rem;
+  background: transparent !important;
+  border: 1px solid rgba(143,255,214,0.2);
+  border-radius: 0.5rem;
+  color: #EFFFFA;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.input-style:focus {
+  border-color: #8fffd6;
+  box-shadow: 0 0 0.625rem rgba(143,255,214,0.3);
+}
+
+/* ========================= */
+/*  RADAR */
+/* ========================= */
+.drone-radar {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 6.25rem; /* 100px */
+  height: 6.25rem;
+  transform: translate(-50%, -50%);
+}
+
+.radar-ring {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 0.0625rem solid rgba(143,255,214,0.25);
+  border-radius: 50%;
+  animation: radarPulse 2.5s linear infinite;
+}
+
+.radar-ring.delay {
+  animation-delay: 1.2s;
+}
+
+@keyframes radarPulse {
+  from { transform: scale(0.3); opacity: 1; }
+  to   { transform: scale(1.5); opacity: 0; }
+}
+
+/* ========================= */
+/*  ANTENNA */
+/* ========================= */
+.antenna {
+  position: fixed;
+  width: 5rem;
+  height: 5rem;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.left-antenna {
+  top: 13%;
+  left: 0;
+  transform: scaleY(-1);
+}
+
+.right-antenna {
+  bottom: 1%;
+  right: 0;
+}
+
+.antenna-svg {
+  width: 100%;
+  height: 100%;
+}
+
+
+/* ========================= */
+/* 🌊 SIGNAL */
+/* ========================= */
+.signal-svg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/*  MAIN WIRE */
+.signal-path {
+  stroke: #8fffd661;
+  stroke-width: 2px;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+  filter: drop-shadow(0 0 6px rgba(143, 255, 214, 0.6));
+}
+
+/*  PARTICLE */
+.signal-svg circle {
+  fill: #8fffd6;
+  filter: drop-shadow(0 0 6px #8fffd6);
+}
+
+
+/* ========================= */
+/* 📡 ANTENNA WAVE (FIXED) */
+/* ========================= */
+.antenna-wave {
+  position: relative;
+
+  /*  FIX: center EXACTLY on antenna */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -130%);
+
+  width: 1.25rem;
+  height: 1.25rem;
+
+  pointer-events: none;
+}
+
+/* waves */
+.antenna-wave::before,
+.antenna-wave::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 0.0625rem solid #8fffd6;
+  border-radius: 50%;
+  animation: radarWave 2s linear infinite;
+}
+
+.antenna-wave::after {
+  animation-delay: 1s;
+}
+
+@keyframes radarWave {
+  0% {
+    transform: scale(0.5);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(3);
+    opacity: 0;
+  }
+}
+
+
+/* ======================================== */
+/* 📱 RESPONSIVE GLOBAL MOBILE FIX */
+/* ======================================== */
+
+@media (max-width: 768px) {
+
+  /* ======================================== */
+  /* ALL SECTIONS */
+  /* ======================================== */
+
+  #about,
+  #story,
+  #vision,
+  #culture,
+  #mission,
+  #services,
+  #contact {
+
+    width: 100%;
+    overflow: hidden;
+
+    padding-left: 0.8rem !important;
+    padding-right: 0.8rem !important;
+
+    box-sizing: border-box;
+  }
+
+/* ========================================= */
+/* 📱 GLOBAL RESPONSIVE FIX (ALL DEVICES) */
+/* ========================================= */
+
+@media screen and (max-width: 768px) {
+
+  /* ========================= */
+  /* GLOBAL SECTION FIX */
+  /* ========================= */
+  #about,
+  #story,
+  #vision,
+  #mission,
+  #culture,
+  #services,
+  #contact {
+    width: 100% !important;
+    max-width: 100% !important;
+
+    padding-left: 0.8rem !important;
+    padding-right: 0.8rem !important;
+
+    margin-left: auto !important;
+    margin-right: auto !important;
+
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+  }
+
+  /* ========================= */
+  /* AUTO CENTER ALL CARDS */
+  /* ========================= */
+  #about .bg-white\/1,
+  #story .bg-white\/1,
+  #vision .bg-white\/1,
+  #mission .bg-white\/1,
+  #culture .bg-white\/1,
+  #services .bg-white\/1,
+  #contact .bg-white\/1,
+  #contact .space-y-\[2rem\],
+  .hero-desc {
+
+    width: 100% !important;
+
+    /* 🔥 AUTO RESPONSIVE WIDTH */
+    max-width: min(92vw, 22rem) !important;
+
+    margin-left: auto !important;
+    margin-right: auto !important;
+
+    box-sizing: border-box !important;
+  }
+
+  /* ========================= */
+  /* AUTO IMAGE FIX */
+  /* ========================= */
+  #story img,
+  #vision img,
+  #mission img,
+  #culture img,
+  #services img,
+  #about img {
+
+    width: 100% !important;
+    max-width: min(92vw, 22rem) !important;
+
+    height: auto !important;
+
+    display: block !important;
+
+    margin-left: auto !important;
+    margin-right: auto !important;
+
+    border-radius: 1rem !important;
+
+    object-fit: cover !important;
+  }
+
+  /* ========================= */
+  /* SERVICES GRID */
+  /* ========================= */
+  #services .grid {
+    display: flex !important;
+    flex-direction: column !important;
+
+    align-items: center !important;
+
+    gap: 1rem !important;
+  }
+
+  /* ========================= */
+  /* CONTACT GRID */
+  /* ========================= */
+  #contact .max-w-\[72rem\] {
+    display: flex !important;
+    flex-direction: column !important;
+
+    align-items: center !important;
+
+    gap: 1rem !important;
+  }
+
+  /* ========================= */
+  /* SERVICE CARD SIZE */
+  /* ========================= */
+  #services .bg-white\/1 {
+    padding: 1.2rem !important;
+    border-radius: 1rem !important;
+  }
+
+  #services h3 {
+    font-size: 1.1rem !important;
+  }
+
+  #services p,
+  #services li {
+    font-size: 0.82rem !important;
+    line-height: 1.7 !important;
+  }
+
+  /* ========================= */
+  /* CONTACT FIX */
+  /* ========================= */
+  #contact input,
+  #contact textarea {
+    width: 100% !important;
+    padding: 0.75rem !important;
+
+    font-size: 0.85rem !important;
+
+    box-sizing: border-box !important;
+  }
+
+  #contact button {
+    width: 100% !important;
+
+    padding: 0.8rem !important;
+
+    font-size: 0.9rem !important;
+  }
+}
+
+
+  /* ========================= */
+  /* HERO SECTION */
+  /* ========================= */
+
+  .hero {
+  min-height:100svh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative; /* IMPORTANT */
+  padding: 0;
+}
+
+/* IMAGE */
+.hero-banner {
+  width: 100%;
+  height: 100svh;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  position: relative;
+  z-index: 1;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .hero-banner {
+    width: 100%;
+    height: 100svh;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+}
