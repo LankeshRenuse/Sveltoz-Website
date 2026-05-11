@@ -2,11 +2,11 @@ export default function Vision() {
   return (
     <section id="vision" className="py-16 px-4">
 
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-10">
+      <div className="  max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-10">
 
         {/* LEFT GLASS CARD */}
         <div className="w-full md:w-1/2">
-       <div className="bg-white/1 backdrop-blur-lg border border-[#22c55e]/20 rounded-2xl p-8 shadow-xl">
+       <div className="bg-white/1 backdrop-blur-lg border border-[#22c55e]/20 rounded-2xl p-8 shadow-xl  glow-target">
 
             <h2 className="text-3xl md:text-5xl font-bold text-[#22c55e] mb-4">
               VISION

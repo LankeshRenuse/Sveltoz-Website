@@ -2,7 +2,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="py-10 md:py-4 px-4 md:px-8 lg:px-12 bg-[url('/bg.jpg')] bg-cover bg-center"
+      className=" py-10 md:py-4 px-4 md:px-8 lg:px-12 bg-[url('/bg.jpg')] bg-cover bg-center"
     >
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-8 md:gap-10 lg:gap-10 items-center">
 
@@ -35,7 +35,7 @@ export default function About() {
         </div>
 
         {/* RIGHT SIDE - APPROACH CARD */}
-       <div className="bg-white/1 backdrop-blur-lg border border-[#22c55e]/20 rounded-2xl p-8 shadow-xl">
+       <div className="  glow-target bg-white/1 backdrop-blur-lg border border-[#22c55e]/20 rounded-2xl p-8 shadow-xl">
 
           <h3 className="text-xl md:text-2xl lg:text-3xl text-[#22c55e] mb-4 font-semibold text-center md:text-left">
             <span className="text-white">Our </span>

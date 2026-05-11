@@ -13,8 +13,7 @@ import DroneCursor from "./components/DroneCursor"
 import Contact from './components/Contact'
 import BackgroundFX from './components/BackgroundFX'
 import ParticleBackground from './components/ParticleBackground'
-
-
+import ScrollTopButton from "./components/ScrollTopButton";
 
 
 
@@ -51,13 +50,14 @@ export default function App() {
       <div className="bg-title">SVELTOZ</div>
 
 
+    <ScrollTopButton />
       <DroneCursor />
 
       {/* OPTIONAL FX */}
       <BackgroundFX />
       <ParticleBackground />
 
-
+   
       <Navbar />
 
       {/* MAIN */}

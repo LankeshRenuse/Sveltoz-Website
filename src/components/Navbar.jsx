@@ -68,7 +68,7 @@ export default function Navbar() {
 
           {/* ================= DESKTOP ================= */}
           <div className="hidden md:flex space-x-8 text-white text-sm  ">
-            <a href="#home" className={linkClass("home")}>HOME</a>
+            <a href="#home" className={linkClass("home") }>HOME</a>
             <a href="#about" className={linkClass("about")}>ABOUT</a>
             <a href="#story" className={linkClass("story")}>OUR STORY</a>
             <a href="#vision" className={linkClass("vision")}>OUR VISION</a>

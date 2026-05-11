@@ -1,7 +1,7 @@
 export default function Hero() {
   return (
-    <section id="home" className="hero">
-      
+    <section className="hero">
+
       <video
         className="hero-banner"
         autoPlay

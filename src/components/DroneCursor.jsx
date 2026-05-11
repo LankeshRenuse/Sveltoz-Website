@@ -1,7 +1,6 @@
 import { useEffect, useRef } from "react";
 
 export default function DroneCursor() {
-
   const droneRef = useRef(null);
   const pathRef = useRef(null);
   const particleRef = useRef(null);
@@ -10,6 +9,15 @@ export default function DroneCursor() {
   const lockStrength = useRef(0);
 
   useEffect(() => {
+    // 🎛️ GLOBAL CONTROLS (TUNE HERE)
+    const CONFIG = {
+      range: 300,
+      strength: 0.1,
+      lift: 5,
+      scale: 0.02,
+      glowBlur1: 15,
+      glowBlur2: 90,
+    };
 
     let mouseX = window.innerWidth / 2;
     let mouseY = window.innerHeight / 2;
@@ -25,7 +33,7 @@ export default function DroneCursor() {
       mouseY = e.clientY;
     };
 
-    // 🎯 GET ANTENNA TIP (SVG → SCREEN)
+    // 🎯 ANTENNA TIP
     const getAntennaTip = (antenna) => {
       const svg = antenna.querySelector("svg");
       const tip = antenna.querySelector("circle[cx='50'][cy='8']");
@@ -38,10 +46,14 @@ export default function DroneCursor() {
 
       const screen = pt.matrixTransform(svg.getScreenCTM());
 
-      return { x: screen.x, y: screen.y, el: antenna };
+      return {
+        x: screen.x,
+        y: screen.y,
+        el: antenna,
+      };
     };
 
-    // 🎯 GET DRONE CENTER (REAL VISUAL CENTER)
+    // 🎯 DRONE CENTER
     const getDroneCenter = () => {
       const centerEl = droneRef.current?.querySelector(".center");
 
@@ -49,21 +61,13 @@ export default function DroneCursor() {
         const r = centerEl.getBoundingClientRect();
         return {
           x: r.left + r.width / 2,
-          y: r.top + r.height / 2
+          y: r.top + r.height / 2,
         };
       }
-
-      // fallback
-      const r = droneRef.current?.getBoundingClientRect();
-      if (!r) return null;
-
-      return {
-        x: r.left + r.width / 2,
-        y: r.top + r.height / 2
-      };
+      return null;
     };
 
-    // 🌊 WAVE
+    // 🌊 WAVE PATH
     const createWavePath = (x1, y1, x2, y2) => {
       const segments = 20;
       const amplitude = 8;
@@ -96,25 +100,58 @@ export default function DroneCursor() {
       return path;
     };
 
+    // 🔥 GLOBAL GLOW SYSTEM
+    const updateGlobalGlow = (droneX, droneY) => {
+      const elements = document.querySelectorAll(".glow-target");
+
+      elements.forEach((el) => {
+        const rect = el.getBoundingClientRect();
+
+        const centerX = rect.left + rect.width / 2;
+        const centerY = rect.top + rect.height / 2;
+
+        const distance = Math.hypot(droneX - centerX, droneY - centerY);
+
+        const intensity =
+          Math.max(0, 1 - distance / CONFIG.range) * CONFIG.strength;
+
+        if (intensity > 0) {
+          el.style.boxShadow = `
+            0 0 ${CONFIG.glowBlur1 + intensity * 50}px rgba(143,255,214,${0.08 + intensity * 0.45}),
+            0 0 ${CONFIG.glowBlur2 + intensity * 90}px rgba(143,255,214,${0.05 + intensity * 0.25})
+          `;
+
+          el.style.transform = `
+            translateY(-${intensity * CONFIG.lift}px)
+            scale(${1 + intensity * CONFIG.scale})
+          `;
+
+          el.style.borderColor = `rgba(143,255,214,${0.2 + intensity * 0.5})`;
+        } else {
+          el.style.boxShadow = "";
+          el.style.transform = "";
+          el.style.borderColor = "";
+        }
+      });
+    };
+
     const animate = () => {
       time += 0.05;
 
-      // smooth follow
       x += (mouseX - x) * 0.08;
       y += (mouseY - y) * 0.08;
 
-      // floating
       const floatX = Math.sin(time) * 2;
       const floatY = Math.cos(time * 1.2) * 2;
 
       const finalX = x + floatX;
       const finalY = y + floatY;
 
-      // rotation
       const dx = mouseX - x;
       const dy = mouseY - y;
 
       let targetAngle = 0;
+
       if (dx !== 0 || dy !== 0) {
         targetAngle = Math.atan2(dy, dx) * (180 / Math.PI);
       }
@@ -122,15 +159,17 @@ export default function DroneCursor() {
       currentAngle += (targetAngle - currentAngle) * 0.08;
 
       if (droneRef.current) {
-        droneRef.current.style.transform =
-          `translate(${finalX}px, ${finalY}px)
-           translate(-50%, -50%)
-           rotate(${currentAngle + 90}deg)`;
+        droneRef.current.style.transform = `
+          translate(${finalX}px, ${finalY}px)
+          translate(-50%, -50%)
+          rotate(${currentAngle + 90}deg)
+        `;
       }
 
-      // =========================
-      // 🧠 ANTENNA TRACKING
-      // =========================
+      // 🔥 APPLY GLOW
+      updateGlobalGlow(finalX, finalY);
+
+      // 🧠 ANTENNA LOGIC
       const antennas = document.querySelectorAll(".antenna");
 
       let best = null;
@@ -148,7 +187,6 @@ export default function DroneCursor() {
         }
       });
 
-      // 🔒 LOCK
       if (lockedRef.current) {
         const dist = Math.hypot(
           finalX - lockedRef.current.x,
@@ -170,11 +208,8 @@ export default function DroneCursor() {
 
       const target = lockedRef.current;
 
-      // =========================
-      // 🌊 DRAW SIGNAL
-      // =========================
+      // 🌊 SIGNAL
       if (target && pathRef.current) {
-
         const droneCenter = getDroneCenter();
         if (!droneCenter) return;
 
@@ -183,9 +218,9 @@ export default function DroneCursor() {
           createWavePath(target.x, target.y, droneCenter.x, droneCenter.y)
         );
 
-        pathRef.current.style.opacity = 0.6 + lockStrength.current * 0.4;
+        pathRef.current.style.opacity =
+          0.6 + lockStrength.current * 0.4;
 
-        // particle
         if (particleRef.current) {
           const len = pathRef.current.getTotalLength();
           const t = (Date.now() % 3000) / 3000;
@@ -197,7 +232,7 @@ export default function DroneCursor() {
         }
       }
 
-      antennas.forEach(a => a.classList.remove("active"));
+      antennas.forEach((a) => a.classList.remove("active"));
       if (target?.el) target.el.classList.add("active");
 
       requestAnimationFrame(animate);
@@ -207,13 +242,12 @@ export default function DroneCursor() {
     animate();
 
     return () => window.removeEventListener("mousemove", moveMouse);
-
   }, []);
 
   return (
     <>
       {/* ANTENNAS */}
-      <div className="antenna left-antenna">
+      <div className="antenna left-antenna glow-target">
         <div className="antenna-wave"></div>
         <svg viewBox="0 0 100 100" className="antenna-svg">
           <g stroke="#8fffd65a" strokeWidth="2" fill="#8fffd65a">
@@ -226,7 +260,7 @@ export default function DroneCursor() {
         </svg>
       </div>
 
-      <div className="antenna right-antenna">
+      <div className="antenna right-antenna glow-target">
         <div className="antenna-wave"></div>
         <svg viewBox="0 0 100 100" className="antenna-svg">
           <g stroke="#8fffd65a" strokeWidth="2" fill="#8fffd65a">
@@ -253,7 +287,6 @@ export default function DroneCursor() {
           <div className="radar-sweep"></div>
         </div>
 
-        {/* 🔥 THIS is the true center */}
         <div className="center"></div>
 
         <div className="arm a1"><div className="rotor"></div></div>

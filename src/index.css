@@ -16,12 +16,21 @@
 /* ========================= */
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 5.625rem; /* 90px */
+  scroll-padding-top: 5.625rem;
+  /* 90px */
 }
 
-img, video {
+/* ========================= */
+/* GLOBAL MEDIA FIX */
+/* ========================= */
+
+img {
   max-width: 100%;
   height: auto;
+}
+
+video {
+  max-width: 100%;
 }
 
 /* ========================= */
@@ -29,10 +38,10 @@ img, video {
 /* ========================= */
 :root {
   --step--1: clamp(0.75rem, 1.2vw, 0.875rem);
-  --step-0:  clamp(0.875rem, 1.6vw, 1.125rem);
-  --step-1:  clamp(1.125rem, 2.5vw, 1.75rem);
-  --step-2:  clamp(1.75rem, 5vw, 3.75rem);
-  --step-3:  clamp(2.5rem, 8vw, 7.5rem);
+  --step-0: clamp(0.875rem, 1.6vw, 1.125rem);
+  --step-1: clamp(1.125rem, 2.5vw, 1.75rem);
+  --step-2: clamp(1.75rem, 5vw, 3.75rem);
+  --step-3: clamp(2.5rem, 8vw, 7.5rem);
 
   --space-xs: clamp(0.25rem, 1vh, 0.625rem);
   --space-sm: clamp(0.5rem, 2vh, 1rem);
@@ -62,10 +71,11 @@ body {
 /* ========================= */
 .drone {
   position: fixed;
-  width: 3.75rem; /* 60px */
+  width: 3.75rem;
+  /* 60px */
   height: 3.75rem;
   pointer-events: none;
-  z-index: -1;
+  z-index: 10;
   opacity: 1;
   filter: drop-shadow(0 0 0.125rem #8fffd6);
 }
@@ -75,7 +85,8 @@ body {
 /* ========================= */
 .center {
   position: absolute;
-  width: 0.875rem; /* 14px */
+  width: 0.875rem;
+  /* 14px */
   height: 0.875rem;
   background: #8fffd6;
   top: 50%;
@@ -88,26 +99,40 @@ body {
 /* ========================= */
 .arm {
   position: absolute;
-  width: 1.375rem; /* 22px */
-  height: 0.09375rem; /* 1.5px */
+  width: 1.375rem;
+  /* 22px */
+  height: 0.09375rem;
+  /* 1.5px */
   background: #8fffd6;
   top: 50%;
   left: 50%;
   transform-origin: left center;
 }
-.a1 { transform: rotate(45deg); }
-.a2 { transform: rotate(135deg); }
-.a3 { transform: rotate(225deg); }
-.a4 { transform: rotate(315deg); }
+
+.a1 {
+  transform: rotate(45deg);
+}
+
+.a2 {
+  transform: rotate(135deg);
+}
+
+.a3 {
+  transform: rotate(225deg);
+}
+
+.a4 {
+  transform: rotate(315deg);
+}
 
 /* ========================= */
 /*  ROTOR */
 /* ========================= */
 .rotor {
   position: absolute;
-  right: -0.625rem; 
+  right: -0.625rem;
   top: 50%;
-  width: 1.625rem; 
+  width: 1.625rem;
   height: 1.625rem;
   transform: translateY(-50%);
   display: flex;
@@ -120,11 +145,11 @@ body {
 .rotor::after {
   content: "";
   position: absolute;
-  width: 0.875rem; 
-  height: 0.25rem; 
+  width: 0.875rem;
+  height: 0.25rem;
   background: #078703;
   border-radius: 100% 30% 100% 30%;
-  box-shadow: 0 0 0.375rem rgba(143,255,214,0.4);
+  box-shadow: 0 0 0.375rem rgba(143, 255, 214, 0.4);
 }
 
 .rotor::before {
@@ -136,8 +161,13 @@ body {
 }
 
 @keyframes spin {
-  from { transform: translateY(-50%) rotate(0deg); }
-  to   { transform: translateY(-50%) rotate(360deg); }
+  from {
+    transform: translateY(-50%) rotate(0deg);
+  }
+
+  to {
+    transform: translateY(-50%) rotate(360deg);
+  }
 }
 
 
@@ -145,6 +175,7 @@ body {
 
 /* MOBILE PERFORMANCE */
 @media (max-width: 768px) {
+
   svg.signal-svg,
   .antenna,
   .signal-svg circle {
@@ -162,8 +193,9 @@ body {
   transform: translate(-50%, -50%);
   font-size: 17vw;
   font-weight: 900;
-  letter-spacing: 1.25rem; /* 20px */
-  color: rgba(143,255,214,0.05);
+  letter-spacing: 1.25rem;
+  /* 20px */
+  color: rgba(143, 255, 214, 0.05);
   pointer-events: none;
   z-index: -1;
 }
@@ -177,8 +209,17 @@ body {
 }
 
 @keyframes blinkFx {
-  0%,100% { opacity:1; text-shadow:0 0 0.5rem rgba(34,197,94,0.8); }
-  50% { opacity:0.5; text-shadow:none; }
+
+  0%,
+  100% {
+    opacity: 1;
+    text-shadow: 0 0 0.5rem rgba(34, 197, 94, 0.8);
+  }
+
+  50% {
+    opacity: 0.5;
+    text-shadow: none;
+  }
 }
 
 /* ========================= */
@@ -189,7 +230,7 @@ body {
   padding: 0.75rem 0.875rem;
   font-size: 1rem;
   background: transparent !important;
-  border: 1px solid rgba(143,255,214,0.2);
+  border: 1px solid rgba(143, 255, 214, 0.2);
   border-radius: 0.5rem;
   color: #EFFFFA;
   outline: none;
@@ -198,7 +239,7 @@ body {
 
 .input-style:focus {
   border-color: #8fffd6;
-  box-shadow: 0 0 0.625rem rgba(143,255,214,0.3);
+  box-shadow: 0 0 0.625rem rgba(143, 255, 214, 0.3);
 }
 
 /* ========================= */
@@ -208,7 +249,8 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 6.25rem; /* 100px */
+  width: 6.25rem;
+  /* 100px */
   height: 6.25rem;
   transform: translate(-50%, -50%);
 }
@@ -217,7 +259,7 @@ body {
   position: absolute;
   width: 100%;
   height: 100%;
-  border: 0.0625rem solid rgba(143,255,214,0.25);
+  border: 0.0625rem solid rgba(143, 255, 214, 0.25);
   border-radius: 50%;
   animation: radarPulse 2.5s linear infinite;
 }
@@ -227,8 +269,15 @@ body {
 }
 
 @keyframes radarPulse {
-  from { transform: scale(0.3); opacity: 1; }
-  to   { transform: scale(1.5); opacity: 0; }
+  from {
+    transform: scale(0.3);
+    opacity: 1;
+  }
+
+  to {
+    transform: scale(1.5);
+    opacity: 0;
+  }
 }
 
 /* ========================= */
@@ -238,7 +287,7 @@ body {
   position: fixed;
   width: 5rem;
   height: 5rem;
-  z-index: -1;
+  z-index: 10;
   pointer-events: none;
 }
 
@@ -269,7 +318,7 @@ body {
   width: 100%;
   height: 100%;
   pointer-events: none;
-  z-index: -1;
+  z-index: 10;
 }
 
 /*  MAIN WIRE */
@@ -328,6 +377,7 @@ body {
     transform: scale(0.5);
     opacity: 0.6;
   }
+
   100% {
     transform: scale(3);
     opacity: 0;
@@ -362,183 +412,196 @@ body {
     box-sizing: border-box;
   }
 
-/* ========================================= */
-/* 📱 GLOBAL RESPONSIVE FIX (ALL DEVICES) */
-/* ========================================= */
+  /* ========================================= */
+  /* 📱 GLOBAL RESPONSIVE FIX (ALL DEVICES) */
+  /* ========================================= */
 
-@media screen and (max-width: 768px) {
+  @media screen and (max-width: 768px) {
 
-  /* ========================= */
-  /* GLOBAL SECTION FIX */
-  /* ========================= */
-  #about,
-  #story,
-  #vision,
-  #mission,
-  #culture,
-  #services,
-  #contact {
-    width: 100% !important;
-    max-width: 100% !important;
+    /* ========================= */
+    /* GLOBAL SECTION FIX */
+    /* ========================= */
+    #about,
+    #story,
+    #vision,
+    #mission,
+    #culture,
+    #services,
+    #contact {
+      width: 100% !important;
+      max-width: 100% !important;
 
-    padding-left: 0.8rem !important;
-    padding-right: 0.8rem !important;
+      padding-left: 0.8rem !important;
+      padding-right: 0.8rem !important;
 
-    margin-left: auto !important;
-    margin-right: auto !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
 
-    overflow: hidden !important;
-    box-sizing: border-box !important;
-  }
+      overflow: hidden !important;
+      box-sizing: border-box !important;
+    }
 
-  /* ========================= */
-  /* AUTO CENTER ALL CARDS */
-  /* ========================= */
-  #about .bg-white\/1,
-  #story .bg-white\/1,
-  #vision .bg-white\/1,
-  #mission .bg-white\/1,
-  #culture .bg-white\/1,
-  #services .bg-white\/1,
-  #contact .bg-white\/1,
-  #contact .space-y-\[2rem\],
-  .hero-desc {
+    /* ========================= */
+    /* AUTO CENTER ALL CARDS */
+    /* ========================= */
+    #about .bg-white\/1,
+    #story .bg-white\/1,
+    #vision .bg-white\/1,
+    #mission .bg-white\/1,
+    #culture .bg-white\/1,
+    #services .bg-white\/1,
+    #contact .bg-white\/1,
+    #contact .space-y-\[2rem\],
+    .hero-desc {
 
-    width: 100% !important;
+      width: 100% !important;
 
-    /* 🔥 AUTO RESPONSIVE WIDTH */
-    max-width: min(92vw, 22rem) !important;
+      /* 🔥 AUTO RESPONSIVE WIDTH */
+      max-width: min(92vw, 22rem) !important;
 
-    margin-left: auto !important;
-    margin-right: auto !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
 
-    box-sizing: border-box !important;
-  }
+      box-sizing: border-box !important;
+    }
 
-  /* ========================= */
-  /* AUTO IMAGE FIX */
-  /* ========================= */
-  #story img,
-  #vision img,
-  #mission img,
-  #culture img,
-  #services img,
-  #about img {
+    /* ========================= */
+    /* AUTO IMAGE FIX */
+    /* ========================= */
+    #story img,
+    #vision img,
+    #mission img,
+    #culture img,
+    #services img,
+    #about img {
 
-    width: 100% !important;
-    max-width: min(92vw, 22rem) !important;
+      width: 100% !important;
+      max-width: min(92vw, 22rem) !important;
 
-    height: auto !important;
+      height: auto !important;
 
-    display: block !important;
+      display: block !important;
 
-    margin-left: auto !important;
-    margin-right: auto !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
 
-    border-radius: 1rem !important;
+      border-radius: 1rem !important;
 
-    object-fit: cover !important;
-  }
+      object-fit: cover !important;
+    }
 
-  /* ========================= */
-  /* SERVICES GRID */
-  /* ========================= */
-  #services .grid {
-    display: flex !important;
-    flex-direction: column !important;
+    /* ========================= */
+    /* SERVICES GRID */
+    /* ========================= */
+    #services .grid {
+      display: flex !important;
+      flex-direction: column !important;
 
-    align-items: center !important;
+      align-items: center !important;
 
-    gap: 1rem !important;
-  }
+      gap: 1rem !important;
+    }
 
-  /* ========================= */
-  /* CONTACT GRID */
-  /* ========================= */
-  #contact .max-w-\[72rem\] {
-    display: flex !important;
-    flex-direction: column !important;
 
-    align-items: center !important;
+    
+    /* ========================= */
+    /* CONTACT GRID */
+    /* ========================= */
+    #contact .max-w-\[72rem\] {
+      display: flex !important;
+      flex-direction: column !important;
 
-    gap: 1rem !important;
-  }
+      align-items: center !important;
 
-  /* ========================= */
-  /* SERVICE CARD SIZE */
-  /* ========================= */
-  #services .bg-white\/1 {
-    padding: 1.2rem !important;
-    border-radius: 1rem !important;
-  }
+      gap: 1rem !important;
+    }
 
-  #services h3 {
-    font-size: 1.1rem !important;
-  }
+    /* ========================= */
+    /* SERVICE CARD SIZE */
+    /* ========================= */
+    #services .bg-white\/1 {
+      padding: 1.2rem !important;
+      border-radius: 1rem !important;
+    }
 
-  #services p,
-  #services li {
-    font-size: 0.82rem !important;
-    line-height: 1.7 !important;
-  }
+    #services h3 {
+      font-size: 1.1rem !important;
+    }
 
-  /* ========================= */
-  /* CONTACT FIX */
-  /* ========================= */
-  #contact input,
-  #contact textarea {
-    width: 100% !important;
-    padding: 0.75rem !important;
+    #services p,
+    #services li {
+      font-size: 0.82rem !important;
+      line-height: 1.7 !important;
+    }
 
-    font-size: 0.85rem !important;
+    /* ========================= */
+    /* CONTACT FIX */
+    /* ========================= */
+    #contact input,
+    #contact textarea {
+      width: 100% !important;
+      padding: 0.75rem !important;
 
-    box-sizing: border-box !important;
-  }
+      font-size: 0.85rem !important;
 
-  #contact button {
-    width: 100% !important;
+      box-sizing: border-box !important;
+    }
 
-    padding: 0.8rem !important;
+    #contact button {
+      width: 100% !important;
 
-    font-size: 0.9rem !important;
+      padding: 0.8rem !important;
+
+      font-size: 0.9rem !important;
+    }
   }
 }
 
+/* DRONE ICON */
 
-  /* ========================= */
-  /* HERO SECTION */
-  /* ========================= */
+.drone-icon {
+  width: 1rem;
+  height: 1rem;
+  object-fit: contain;
+}
 
-  .hero {
-  min-height:100svh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
+/* ========================= */
+/* HERO SECTION */
+/* ========================= */
+
+.hero {
+  width: 100%;
+  height: 100dvh;
+  position: relative;
   overflow: hidden;
-  position: relative; /* IMPORTANT */
   padding: 0;
 }
 
-/* IMAGE */
+/* VIDEO */
+
 .hero-banner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
   width: 100%;
-  height: 100svh;
+  height: 100%;
+
+  min-width: 100%;
+  min-height: 100%;
+
   object-fit: cover;
   object-position: center;
-  display: block;
-  position: relative;
+
+  transform: translate(-50%, -50%);
+
   z-index: 1;
+
   user-select: none;
   pointer-events: none;
+  display: block;
 }
 
-/* MOBILE */
-@media (max-width: 768px) {
-  .hero-banner {
-    width: 100%;
-    height: 100svh;
-    object-fit: cover;
-    object-position: center;
-  }
-}
-}
+
+

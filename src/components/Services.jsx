@@ -3,7 +3,7 @@
 export default function Services() {
 
     return (
-        <section id="services" className="py-24 px-6 text-center">
+        <section id="services" className="py-24 px-6 text-center  ">
 
             {/* TITLE */}
             <h2 className="text-4xl md:text-6xl font-bold mb-6">
@@ -17,10 +17,10 @@ export default function Services() {
             </p>
 
             {/* CARDS */}
-            <div className="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto">
+            <div className="  grid md:grid-cols-3 gap-10 max-w-6xl mx-auto">
 
                 {/* CARD 1 */}
-                <div className="bg-white/1 backdrop-blur-md border border-[#22c55e]/20 rounded-2xl p-6 md:p-8 shadow-[0_0_30px_rgba(143,255,214,0.08)] hover:shadow-[0_0_50px_rgba(143,255,214,0.15)] transition-all duration-300">
+                <div className=" bg-white/1 backdrop-blur-md border border-[#22c55e]/20 rounded-2xl p-6 md:p-8 shadow-[0_0_30px_rgba(143,255,214,0.08)] hover:shadow-[0_0_50px_rgba(143,255,214,0.15)] transition-all duration-300">
                     <h3 className="text-xl font-semibold mb-3 text-[#22c55e]">
                         AI / ML Solutions
                     </h3>
@@ -28,35 +28,32 @@ export default function Services() {
                     <div className="max-w-3xl mx-auto text-left space-y-6 text-lg text-gray-400">
 
                         <p className="flex items-start gap-2 text-sm md:text-base">
-                            <img
-                                src="/drone-icon.png"
-                                className="w-3 h-3 md:w-4 md:h-4 mt-1 shrink-0"
-                            />
+                             <img src="/drone-icon.png" className="drone-icon" alt="drone" />
                             <span>Predictive Analytics & Forecasting Models</span>
                         </p>
 
                         <div className="flex items-center gap-2">
-                            <img src="/drone-icon.png" className="w-4 h-4" />
+                             <img src="/drone-icon.png" className="drone-icon" alt="drone" />
                             <p>Computer Vision & Image Recognition</p>
                         </div>
 
                         <div className="flex items-center gap-2">
-                            <img src="/drone-icon.png" className="w-4 h-4" />
+                             <img src="/drone-icon.png" className="drone-icon" alt="drone" />
                             <p>Natural Language Processing (NLP)</p>
                         </div>
 
                         <div className="flex items-center gap-2">
-                            <img src="/drone-icon.png" className="w-4 h-4" />
+                             <img src="/drone-icon.png" className="drone-icon" alt="drone" />
                             <p>Recommendation Systems & Personalization Engines</p>
                         </div>
 
                         <div className="flex items-center gap-2">
-                            <img src="/drone-icon.png" className="w-4 h-4" />
+                           <img src="/drone-icon.png" className="drone-icon" alt="drone" />
                             <p>Generative AI & Conversational Bots</p>
                         </div>
 
                         <div className="flex items-center gap-2">
-                            <img src="/drone-icon.png" className="w-4 h-4" />
+                            <img src="/drone-icon.png" className="drone-icon" alt="drone" />
                             <p>Model Deployment, Monitoring & Optimization</p>
                         </div>
 
@@ -65,7 +62,7 @@ export default function Services() {
 
 
                 {/* CARD 2 */}
-                <div className="bg-white/1 backdrop-blur-md border border-[#22c55e]/20 rounded-2xl p-6 md:p-8shadow-[0_0_30px_rgba(143,255,214,0.08)]hover:shadow-[0_0_50px_rgba(143,255,214,0.15)] transition-all duration-300">
+                 <div className=" bg-white/1 backdrop-blur-md border border-[#22c55e]/20 rounded-2xl p-6 md:p-8 shadow-[0_0_30px_rgba(143,255,214,0.08)] hover:shadow-[0_0_50px_rgba(143,255,214,0.15)] transition-all duration-300">
                     <h3 className="text-xl font-semibold mb-3 text-[#22c55e]">
                         Drone Development
                     </h3>
@@ -82,7 +79,7 @@ export default function Services() {
                 </div>
 
                 {/* CARD 3 */}
-                <div className="bg-white/1 backdrop-blur-md border border-[#22c55e]/20 rounded-2xl p-6 md:p-8shadow-[0_0_30px_rgba(143,255,214,0.08)]hover:shadow-[0_0_50px_rgba(143,255,214,0.15)] transition-all duration-300">
+                 <div className=" bg-white/1 backdrop-blur-md border border-[#22c55e]/20 rounded-2xl p-6 md:p-8 shadow-[0_0_30px_rgba(143,255,214,0.08)] hover:shadow-[0_0_50px_rgba(143,255,214,0.15)] transition-all duration-300">
                     <h3 className="text-xl font-semibold mb-3 text-[#22c55e]">
                         Enterprise Software Development
                     </h3>
@@ -98,7 +95,7 @@ export default function Services() {
                 </div>
 
                 {/* CARD 4 */}
-                <div className="bg-white/1 backdrop-blur-md border border-[#22c55e]/20 rounded-2xl p-6 md:p-8shadow-[0_0_30px_rgba(143,255,214,0.08)]hover:shadow-[0_0_50px_rgba(143,255,214,0.15)] transition-all duration-300">
+                 <div className=" bg-white/1 backdrop-blur-md border border-[#22c55e]/20 rounded-2xl p-6 md:p-8 shadow-[0_0_30px_rgba(143,255,214,0.08)] hover:shadow-[0_0_50px_rgba(143,255,214,0.15)] transition-all duration-300">
                     <h3 className="text-xl font-semibold mb-3 text-[#22c55e]">
                         Data Engineering & Analytics
                     </h3>
@@ -115,7 +112,7 @@ export default function Services() {
                 </div>
 
                 {/* CARD 5 */}
-                <div className="bg-white/1 backdrop-blur-md border border-[#22c55e]/20 rounded-2xl p-6 md:p-8shadow-[0_0_30px_rgba(143,255,214,0.08)]hover:shadow-[0_0_50px_rgba(143,255,214,0.15)] transition-all duration-300">
+                <div className=" bg-white/1 backdrop-blur-md border border-[#22c55e]/20 rounded-2xl p-6 md:p-8 shadow-[0_0_30px_rgba(143,255,214,0.08)] hover:shadow-[0_0_50px_rgba(143,255,214,0.15)] transition-all duration-300">
                     <h3 className="text-xl font-semibold mb-3 text-[#22c55e]">
                         Quality Assurance (QA) & Testing Services
                     </h3>
@@ -133,7 +130,7 @@ export default function Services() {
                 </div>
 
                 {/* CARD 6*/}
-                <div className="bg-white/1 backdrop-blur-md border border-[#22c55e]/20 rounded-2xl p-6 md:p-8shadow-[0_0_30px_rgba(143,255,214,0.08)]hover:shadow-[0_0_50px_rgba(143,255,214,0.15)] transition-all duration-300">
+                 <div className=" bg-white/1 backdrop-blur-md border border-[#22c55e]/20 rounded-2xl p-6 md:p-8 shadow-[0_0_30px_rgba(143,255,214,0.08)] hover:shadow-[0_0_50px_rgba(143,255,214,0.15)] transition-all duration-300">
                     <h3 className="text-xl font-semibold mb-3 text-[#22c55e]">
                         SAP Consulting & Implementation
                     </h3>
@@ -150,7 +147,7 @@ export default function Services() {
                 </div>
 
                 {/* CARD 7 */}
-                <div className="bg-white/1 backdrop-blur-md border border-[#22c55e]/20 rounded-2xl p-6 md:p-8shadow-[0_0_30px_rgba(143,255,214,0.08)]hover:shadow-[0_0_50px_rgba(143,255,214,0.15)] transition-all duration-300">
+                <div className=" bg-white/1 backdrop-blur-md border border-[#22c55e]/20 rounded-2xl p-6 md:p-8 shadow-[0_0_30px_rgba(143,255,214,0.08)] hover:shadow-[0_0_50px_rgba(143,255,214,0.15)] transition-all duration-300">
                     <h3 className="text-xl font-semibold mb-3 text-[#22c55e]">
                         Cloud & Infrastructure Services
                     </h3>
@@ -167,7 +164,7 @@ export default function Services() {
                 </div>
 
                 {/* CARD 8 */}
-                <div className="bg-white/1 backdrop-blur-md border border-[#22c55e]/20 rounded-2xl p-6 md:p-8shadow-[0_0_30px_rgba(143,255,214,0.08)]hover:shadow-[0_0_50px_rgba(143,255,214,0.15)] transition-all duration-300">
+ <div className=" bg-white/1 backdrop-blur-md border border-[#22c55e]/20 rounded-2xl p-6 md:p-8 shadow-[0_0_30px_rgba(143,255,214,0.08)] hover:shadow-[0_0_50px_rgba(143,255,214,0.15)] transition-all duration-300">
                     <h3 className="text-xl font-semibold mb-3 text-[#22c55e]">
                         Automation & Digital Transformation
                     </h3>
@@ -184,7 +181,7 @@ export default function Services() {
                 </div>
 
                 {/* CARD 9 */}
-                <div className="bg-white/1 backdrop-blur-md border border-[#22c55e]/20 rounded-2xl p-6 md:p-8shadow-[0_0_30px_rgba(143,255,214,0.08)]hover:shadow-[0_0_50px_rgba(143,255,214,0.15)] transition-all duration-300">
+            <div className=" bg-white/1 backdrop-blur-md border border-[#22c55e]/20 rounded-2xl p-6 md:p-8 shadow-[0_0_30px_rgba(143,255,214,0.08)] hover:shadow-[0_0_50px_rgba(143,255,214,0.15)] transition-all duration-300">
                     <h3 className="text-xl font-semibold mb-3 text-[#22c55e]">
                         Technology Consulting & Innovation
                     </h3>

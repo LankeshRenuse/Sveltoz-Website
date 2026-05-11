@@ -4,7 +4,7 @@ export default function Mission() {
   return (
     <section
       id="mission"
-      className="py-16 px-4 bg-[url('/bg.jpg')] bg-cover bg-center"
+      className="  py-16 px-4 bg-[url('/bg.jpg')] bg-cover bg-center"
     >
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
 
@@ -18,7 +18,7 @@ export default function Mission() {
         </div>
 
         {/* CONTENT */}
-        <div className="bg-white/1 backdrop-blur-lg border border-[#22c55e]/20 rounded-2xl p-8 shadow-xl">
+        <div className="bg-white/1 backdrop-blur-lg border border-[#22c55e]/20 rounded-2xl p-8 shadow-xl  glow-target">
 
           <h2 className="text-3xl md:text-5xl text-[#22c55e] mb-6 font-bold">
             MISSION

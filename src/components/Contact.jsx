@@ -64,12 +64,12 @@ export default function Contact() {
 
     <section
       id="contact"
-      className="py-10 md:py-10 px-4 md:px-4 bg-transparent"
+      className=" py-10 md:py-10 px-4 md:px-4 bg-transparent "
     >
 
       {/* ================= TITLE ================= */}
 
-      <h2 className="text-4xl md:text-5xl lg:text-6xl mb-12 md:mb-16 text-center tracking-wide font-bold">
+      <h2 className=" text-4xl md:text-5xl lg:text-6xl mb-12 md:mb-16 text-center tracking-wide font-bold">
 
         <span className="text-white">
           CONTACT
@@ -122,6 +122,7 @@ export default function Contact() {
                   rounded-md
                   hover:bg-[#22c55e]/10
                   transition
+                  
                 "
               >
                 LinkedIn →
@@ -177,7 +178,7 @@ export default function Contact() {
 
         {/* ================= RIGHT FORM ================= */}
 
-        <div className="flex justify-center">
+        <div className="flex justify-center  ">
 
           <div className="
             bg-white/1
@@ -187,6 +188,7 @@ export default function Contact() {
             p-8
             shadow-xl
             w-full
+             glow-target
           ">
 
             <h3 className="
