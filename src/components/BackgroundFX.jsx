@@ -9,15 +9,15 @@ export default function BackgroundFX() {
     background: `
       radial-gradient(
         circle at top center,
-        rgba(2, 0, 10, 0.96),
+        rgba(7, 1, 28, 0.25),
         transparent 40%
       ),
 
       linear-gradient(
         to bottom,
-        #02061a 0%,
-        #020a18 45%,
-        #01050c 100%
+        #010712 0%,
+        #010712 45%,
+        #010712 100%
       )
     `
   }}
