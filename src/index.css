@@ -123,11 +123,9 @@ a,
   pointer-events: none;
 
   background:
-    radial-gradient(
-      circle at center,
-      rgba(255,255,255,0.04),
-      transparent 70%
-    );
+    radial-gradient(circle at center,
+      rgba(255, 255, 255, 0.04),
+      transparent 70%);
 }
 
 /* CANVAS */
@@ -156,12 +154,13 @@ a,
 
   transform: translate(-50%, -50%);
 
-  font-size: 21vw;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 16vw;
   font-weight: 600;
 
   letter-spacing: 1.25rem;
 
-  color: rgba(143,255,214,0.045);
+  color: rgba(143, 255, 214, 0.045);
 
   pointer-events: none;
   z-index: -1;
@@ -182,7 +181,7 @@ a,
   color: #EFFFFA;
 
   border:
-    1px solid rgba(143,255,214,0.2);
+    1px solid rgba(143, 255, 214, 0.2);
 
   border-radius: 0.5rem;
 
@@ -195,7 +194,7 @@ a,
   border-color: #8fffd6;
 
   box-shadow:
-    0 0 0.625rem rgba(143,255,214,0.3);
+    0 0 0.625rem rgba(143, 255, 214, 0.3);
 }
 
 /* ========================= */
@@ -309,19 +308,17 @@ a,
   border-radius: 100% 30% 100% 30%;
 
   box-shadow:
-    0 0 0.375rem rgba(143,255,214,0.4);
+    0 0 0.375rem rgba(143, 255, 214, 0.4);
 }
 
 .rotor::before {
   transform:
-    rotate(25deg)
-    translateX(0.3125rem);
+    rotate(25deg) translateX(0.3125rem);
 }
 
 .rotor::after {
   transform:
-    rotate(205deg)
-    translateX(0.3125rem);
+    rotate(205deg) translateX(0.3125rem);
 }
 
 /* SPIN */
@@ -330,14 +327,12 @@ a,
 
   from {
     transform:
-      translateY(-50%)
-      rotate(0deg);
+      translateY(-50%) rotate(0deg);
   }
 
   to {
     transform:
-      translateY(-50%)
-      rotate(360deg);
+      translateY(-50%) rotate(360deg);
   }
 }
 
@@ -364,7 +359,7 @@ a,
   height: 100%;
 
   border:
-    1px solid rgba(143,255,214,0.25);
+    1px solid rgba(143, 255, 214, 0.25);
 
   border-radius: 50%;
 
@@ -414,7 +409,7 @@ a,
   stroke-linejoin: round;
 
   filter:
-    drop-shadow(0 0 6px rgba(143,255,214,0.6));
+    drop-shadow(0 0 6px rgba(143, 255, 214, 0.6));
 }
 
 .signal-svg circle {
@@ -586,3 +581,8 @@ a,
   }
 }
 
+
+
+.drone-icon {
+  filter: drop-shadow(0 0 6px rgba(34, 197, 94, 0.7));
+}

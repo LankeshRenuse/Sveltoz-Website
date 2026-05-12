@@ -15,9 +15,9 @@ export default function BackgroundFX() {
 
       linear-gradient(
         to bottom,
-        #010411 0%,
-        #010b19 45%,
-        #010813 100%
+        #02061a 0%,
+        #020a18 45%,
+        #01050c 100%
       )
     `
   }}

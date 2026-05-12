@@ -1,202 +1,155 @@
-
-
 export default function Services() {
+  const CardItem = ({ text }) => (
+    <div className="flex items-start gap-3">
+      <img
+        src="/drone-icon.png"
+        className="w-5 h-5 mt-1 object-contain drone-icon"
+        alt="icon"
+      />
+      <span>{text}</span>
+    </div>
+  );
 
-    return (
-        <section id="services" className="py-24 px-6 text-center  ">
+  const Card = ({ title, items }) => (
+    <div className="bg-white/1 backdrop-blur-md border border-[#22c55e]/20 rounded-2xl p-6 md:p-8 shadow-[0_0_30px_rgba(143,255,214,0.08)] hover:shadow-[0_0_50px_rgba(143,255,214,0.15)] transition-all duration-300">
 
-            {/* TITLE */}
-            <h2 className="text-4xl md:text-6xl font-bold mb-6">
-                OUR <span className="text-[#22c55e]">SERVICES</span>
-            </h2>
+      <h3 className="text-xl font-semibold mb-6 text-[#22c55e]">
+        {title}
+      </h3>
 
-            {/* SUBTEXT */}
-            <p className="text-gray-400 max-w-2xl mx-auto mb-16">
-                Discover our end-to-end technology expertise — from intelligent AI solutions to enterprise-grade software systems,
-                \ cloud infrastructure, and innovation consulting.
-            </p>
+      <div className="space-y-5 text-left text-gray-400">
+        {items.map((item, i) => (
+          <CardItem key={i} text={item} />
+        ))}
+      </div>
+    </div>
+  );
 
-            {/* CARDS */}
-            <div className="  grid md:grid-cols-3 gap-10 max-w-6xl mx-auto">
+  return (
+    <section id="services" className="py-24 px-6 text-center">
 
-                {/* CARD 1 */}
-                <div className=" bg-white/1 backdrop-blur-md border border-[#22c55e]/20 rounded-2xl p-6 md:p-8 shadow-[0_0_30px_rgba(143,255,214,0.08)] hover:shadow-[0_0_50px_rgba(143,255,214,0.15)] transition-all duration-300">
-                    <h3 className="text-xl font-semibold mb-3 text-[#22c55e]">
-                        AI / ML Solutions
-                    </h3>
+      {/* TITLE */}
+      <h2 className="text-4xl md:text-6xl font-bold mb-6">
+        OUR <span className="text-[#22c55e]">SERVICES</span>
+      </h2>
 
-                    <div className="max-w-3xl mx-auto text-left space-y-6 text-lg text-gray-400">
+      {/* SUBTEXT */}
+      <p className="text-gray-400 max-w-2xl mx-auto mb-16">
+        Discover our end-to-end technology expertise — from AI solutions to enterprise systems,
+        cloud infrastructure, and innovation consulting.
+      </p>
 
-                        <p className="flex items-start gap-2 text-sm md:text-base">
-                             <img src="/drone-icon.png" className="drone-icon" alt="drone" />
-                            <span>Predictive Analytics & Forecasting Models</span>
-                        </p>
+      {/* GRID */}
+      <div className="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto">
 
-                        <div className="flex items-center gap-2">
-                             <img src="/drone-icon.png" className="drone-icon" alt="drone" />
-                            <p>Computer Vision & Image Recognition</p>
-                        </div>
+        <Card
+          title="AI / ML Solutions"
+          items={[
+            "Predictive Analytics & Forecasting Models",
+            "Computer Vision & Image Recognition",
+            "Natural Language Processing (NLP)",
+            "Recommendation Systems & Personalization Engines",
+            "Generative AI & Conversational Bots",
+            "Model Deployment, Monitoring & Optimization",
+          ]}
+        />
 
-                        <div className="flex items-center gap-2">
-                             <img src="/drone-icon.png" className="drone-icon" alt="drone" />
-                            <p>Natural Language Processing (NLP)</p>
-                        </div>
+        <Card
+          title="Drone Development"
+          items={[
+            "Custom Drone Design & Engineering",
+            "Drone Software + Hardware Integration",
+            "AI-Powered Object Detection & Tracking",
+            "Industrial Drone Applications",
+            "Agricultural Drone Solutions",
+            "Drone Data Processing & Cloud Connectivity",
+          ]}
+        />
 
-                        <div className="flex items-center gap-2">
-                             <img src="/drone-icon.png" className="drone-icon" alt="drone" />
-                            <p>Recommendation Systems & Personalization Engines</p>
-                        </div>
+        <Card
+          title="Enterprise Software Development"
+          items={[
+            "Full-Stack Development (.NET Core + Angular)",
+            "Cloud-Native & Microservices Architecture",
+            "API Development & System Integration",
+            "Custom ERP / CRM Development",
+            "Application Modernization & Migration",
+          ]}
+        />
 
-                        <div className="flex items-center gap-2">
-                           <img src="/drone-icon.png" className="drone-icon" alt="drone" />
-                            <p>Generative AI & Conversational Bots</p>
-                        </div>
+        <Card
+          title="Data Engineering & Analytics"
+          items={[
+            "End-to-End Data Pipeline Design",
+            "Big Data Processing (Spark, Databricks, Azure Synapse)",
+            "Real-Time Dashboards & Visualization",
+            "Data Lake & Warehouse Implementation",
+            "Data Governance & Quality Frameworks",
+            "Predictive & Prescriptive Analytics",
+          ]}
+        />
 
-                        <div className="flex items-center gap-2">
-                            <img src="/drone-icon.png" className="drone-icon" alt="drone" />
-                            <p>Model Deployment, Monitoring & Optimization</p>
-                        </div>
+        <Card
+          title="Quality Assurance (QA) & Testing"
+          items={[
+            "Manual & Automated Testing (Selenium, Cypress, Playwright)",
+            "API & Performance Testing",
+            "Regression & UAT Testing",
+            "CI/CD Testing Integration",
+            "QA Process Automation",
+            "Security & Compliance Testing",
+          ]}
+        />
 
-                    </div>
-                </div>
+        <Card
+          title="SAP Consulting & Implementation"
+          items={[
+            "SAP S/4HANA Implementation & Migration",
+            "SAP Analytics Cloud & BusinessObjects",
+            "SAP Integration with AI/ML & Cloud Platforms",
+            "Custom Modules (FICO, MM, SD, PP)",
+            "SAP Basis & Infrastructure Services",
+            "Post-Implementation Support & Optimization",
+          ]}
+        />
 
+        <Card
+          title="Cloud & Infrastructure Services"
+          items={[
+            "Cloud Strategy (Azure, AWS, GCP)",
+            "Serverless & Container Deployments",
+            "Cloud Security & Compliance",
+            "Disaster Recovery & Optimization",
+            "Infrastructure as Code (Terraform)",
+            "24x7 Cloud Operations",
+          ]}
+        />
 
-                {/* CARD 2 */}
-                 <div className=" bg-white/1 backdrop-blur-md border border-[#22c55e]/20 rounded-2xl p-6 md:p-8 shadow-[0_0_30px_rgba(143,255,214,0.08)] hover:shadow-[0_0_50px_rgba(143,255,214,0.15)] transition-all duration-300">
-                    <h3 className="text-xl font-semibold mb-3 text-[#22c55e]">
-                        Drone Development
-                    </h3>
-                    <p className="text-gray-400">
-                        <div className="max-w-3xl mx-auto text-left space-y-6 text-lg">
-                            <p>✯ Custom Drone Design & Engineering</p>
-                            <p>✯ Drone Software + Hardware Integration</p>
-                            <p>✯ AI-Powered Object Detection & Tracking</p>
-                            <p>✯ Industrial Drone Applications</p>
-                            <p>✯ Agricultural Drone Solutions</p>
-                            <p>Drone Data Processing & Cloud Connectivity</p>
-                        </div>
-                    </p>
-                </div>
+        <Card
+          title="Automation & Digital Transformation"
+          items={[
+            "Robotic Process Automation (RPA)",
+            "Business Workflow Automation",
+            "Intelligent Document Processing (IDP)",
+            "IoT Platform Integration",
+            "AI Predictive Maintenance",
+            "Legacy System Modernization",
+          ]}
+        />
 
-                {/* CARD 3 */}
-                 <div className=" bg-white/1 backdrop-blur-md border border-[#22c55e]/20 rounded-2xl p-6 md:p-8 shadow-[0_0_30px_rgba(143,255,214,0.08)] hover:shadow-[0_0_50px_rgba(143,255,214,0.15)] transition-all duration-300">
-                    <h3 className="text-xl font-semibold mb-3 text-[#22c55e]">
-                        Enterprise Software Development
-                    </h3>
-                    <p className="text-gray-400">
-                        <div className="max-w-3xl mx-auto text-left space-y-6 text-lg">
-                            <p>✯ Full-Stack Development (.NET Core + Angular)</p>
-                            <p>✯ Cloud-Native & Microservices Architecture</p>
-                            <p>✯ API Development & System Integration</p>
-                            <p>✯ Custom ERP / CRM Application Development</p>
-                            <p>✯ Application Modernization & Migration</p>
-                        </div>
-                    </p>
-                </div>
+        <Card
+          title="Technology Consulting & Innovation"
+          items={[
+            "IT Strategy & Roadmap Design",
+            "Architecture Consulting",
+            "MVP & Product Development",
+            "PoC Development",
+            "Digital Maturity Assessment",
+            "Innovation Labs & R&D",
+          ]}
+        />
 
-                {/* CARD 4 */}
-                 <div className=" bg-white/1 backdrop-blur-md border border-[#22c55e]/20 rounded-2xl p-6 md:p-8 shadow-[0_0_30px_rgba(143,255,214,0.08)] hover:shadow-[0_0_50px_rgba(143,255,214,0.15)] transition-all duration-300">
-                    <h3 className="text-xl font-semibold mb-3 text-[#22c55e]">
-                        Data Engineering & Analytics
-                    </h3>
-                    <p className="text-gray-400">
-                        <div className="max-w-3xl mx-auto text-left space-y-6 text-lg">
-                            <p>✯ End-to-End Data Pipeline Design</p>
-                            <p>✯ Big Data Processing (Spark, Databricks, Azure Synapse)</p>
-                            <p>✯ Real-Time Dashboards & Visualization</p>
-                            <p>✯ Data Lake & Warehouse Implementation</p>
-                            <p>✯ Data Governance & Quality Frameworks</p>
-                            <p>✯ Predictive & Prescriptive Business Analytics</p>
-                        </div>
-                    </p>
-                </div>
-
-                {/* CARD 5 */}
-                <div className=" bg-white/1 backdrop-blur-md border border-[#22c55e]/20 rounded-2xl p-6 md:p-8 shadow-[0_0_30px_rgba(143,255,214,0.08)] hover:shadow-[0_0_50px_rgba(143,255,214,0.15)] transition-all duration-300">
-                    <h3 className="text-xl font-semibold mb-3 text-[#22c55e]">
-                        Quality Assurance (QA) & Testing Services
-                    </h3>
-                    <p className="text-gray-400">
-
-                        <div className="max-w-3xl mx-auto text-left space-y-6 text-lg">
-                            <p>✯ Manual & Automated Testing (Selenium, Cypress, Playwright)</p>
-                            <p>✯ API & Performance Testing</p>
-                            <p>✯ Regression, Functional & UAT Testing</p>
-                            <p>✯ Continuous Testing in CI/CD Pipelines</p>
-                            <p>✯ Test Strategy Consulting & QA Process Automation</p>
-                            <p>✯ Security & Compliance Testing</p>
-                        </div>
-                    </p>
-                </div>
-
-                {/* CARD 6*/}
-                 <div className=" bg-white/1 backdrop-blur-md border border-[#22c55e]/20 rounded-2xl p-6 md:p-8 shadow-[0_0_30px_rgba(143,255,214,0.08)] hover:shadow-[0_0_50px_rgba(143,255,214,0.15)] transition-all duration-300">
-                    <h3 className="text-xl font-semibold mb-3 text-[#22c55e]">
-                        SAP Consulting & Implementation
-                    </h3>
-                    <p className="text-gray-400">
-                        <div className="max-w-3xl mx-auto text-left space-y-6 text-lg">
-                            <p>✯ SAP S/4HANA Implementation & Migration</p>
-                            <p>✯ SAP Analytics Cloud (SAC) & BusinessObjects</p>
-                            <p>✯ SAP Integration with AI/ML & Cloud Platformse</p>
-                            <p>✯ Custom Module Development (FICO, MM, SD, PP)</p>
-                            <p>✯ SAP Basis & Infrastructure Services</p>
-                            <p>✯ Post-Implementation Support & Optimization</p>
-                        </div>
-                    </p>
-                </div>
-
-                {/* CARD 7 */}
-                <div className=" bg-white/1 backdrop-blur-md border border-[#22c55e]/20 rounded-2xl p-6 md:p-8 shadow-[0_0_30px_rgba(143,255,214,0.08)] hover:shadow-[0_0_50px_rgba(143,255,214,0.15)] transition-all duration-300">
-                    <h3 className="text-xl font-semibold mb-3 text-[#22c55e]">
-                        Cloud & Infrastructure Services
-                    </h3>
-                    <p className="text-gray-400">
-                        <div className="max-w-3xl mx-auto text-left space-y-6 text-lg">
-                            <p>✯ Cloud Strategy & Architecture (Azure, AWS, GCP)</p>
-                            <p>✯ Serverless & Containerized Deployments</p>
-                            <p>✯ Cloud Security & Compliance</p>
-                            <p>✯ Backup, Disaster Recovery & Cost Optimization</p>
-                            <p>✯ Infrastructure as Code (Terraform, ARM)</p>
-                            <p>✯ 24x7 Cloud Operations & Support</p>
-                        </div>
-                    </p>
-                </div>
-
-                {/* CARD 8 */}
- <div className=" bg-white/1 backdrop-blur-md border border-[#22c55e]/20 rounded-2xl p-6 md:p-8 shadow-[0_0_30px_rgba(143,255,214,0.08)] hover:shadow-[0_0_50px_rgba(143,255,214,0.15)] transition-all duration-300">
-                    <h3 className="text-xl font-semibold mb-3 text-[#22c55e]">
-                        Automation & Digital Transformation
-                    </h3>
-                    <p className="text-gray-400">
-                        <div className="max-w-3xl mx-auto text-left space-y-6 text-lg">
-                            <p>✯ Robotic Process Automation (RPA)</p>
-                            <p>✯ Business Workflow Automation</p>
-                            <p>✯ Intelligent Document Processing (IDP)</p>
-                            <p>✯ IoT Platform Integration</p>
-                            <p>✯ AI-driven Predictive Maintenance</p>
-                            <p>✯ Legacy System Modernization</p>
-                        </div>
-                    </p>
-                </div>
-
-                {/* CARD 9 */}
-            <div className=" bg-white/1 backdrop-blur-md border border-[#22c55e]/20 rounded-2xl p-6 md:p-8 shadow-[0_0_30px_rgba(143,255,214,0.08)] hover:shadow-[0_0_50px_rgba(143,255,214,0.15)] transition-all duration-300">
-                    <h3 className="text-xl font-semibold mb-3 text-[#22c55e]">
-                        Technology Consulting & Innovation
-                    </h3>
-                    <p className="text-gray-400">
-                        <div className="max-w-3xl mx-auto text-left space-y-6 text-lg">
-                            <p>✯ IT Strategy & Roadmap Design</p>
-                            <p>✯  Architecture Consulting</p>
-                            <p>✯ Product Design & MVP Development</p>
-                            <p>✯ Technology Feasibility & PoC Development</p>
-                            <p>✯ Digital Maturity Assessment</p>
-                            <p>✯ Innovation Labs & Emerging Tech R&D </p>
-                        </div>
-                    </p>
-                </div>
-            </div>
-        </section>
-    );
+      </div>
+    </section>
+  );
 }
