@@ -53,7 +53,7 @@ export default function Navbar() {
   return (
     <>
       {/* ================= NAVBAR ================= */}
-      <nav className="fixed top-0 left-0 w-full z-50 bg-black/60 backdrop-blur-md">
+      <nav className="fixed top-0 left-0 w-full z-50 bg-[#020404]/90 md:bg-black/60 backdrop-blur-md border-b border-[#22c55e]/20 md:border-b-0">
 
         <div className="flex justify-between items-center px-4 md:px-10 py-3 md:py-5">
 
@@ -105,30 +105,30 @@ export default function Navbar() {
       <div
         className={`
           fixed top-0 right-0 h-full w-[260px]
-          bg-white text-black z-50
+          bg-[#020404]/95 text-[#EFFFFA] z-50
           transform transition-transform duration-300 ease-in-out
           ${open ? "translate-x-0" : "translate-x-full"}
-          shadow-2xl
+          shadow-2xl shadow-[#22c55e]/20 border-l border-[#22c55e]/25
         `}
       >
 
         {/* HEADER */}
-        <div className="flex justify-between items-center px-4 py-4 border-b">
+        <div className="flex justify-between items-center px-4 py-4 border-b border-[#22c55e]/25">
           <img src="/logo.png" className="h-8" />
           <button onClick={() => setOpen(false)} className="text-lg">✕</button>
         </div>
 
         {/* MENU */}
-        <div className="flex flex-col gap-6 px-6 py-6 text-sm">
+        <div className="flex flex-col gap-6 px-6 py-6 text-sm uppercase tracking-wide">
 
-          <a onClick={() => setOpen(false)} href="#home">Home</a>
-          <a onClick={() => setOpen(false)} href="#about">About</a>
-          <a onClick={() => setOpen(false)} href="#story">Our Story</a>
-          <a onClick={() => setOpen(false)} href="#vision">Our Vision</a>
-          <a onClick={() => setOpen(false)} href="#mission">Mission</a>
-          <a onClick={() => setOpen(false)} href="#culture">Culture</a>
-          <a onClick={() => setOpen(false)} href="#services">Services</a>
-          <a onClick={() => setOpen(false)} href="#contact">Contact</a>
+          <a onClick={() => setOpen(false)} href="#home" className="hover:text-[#22c55e] transition-colors">Home</a>
+          <a onClick={() => setOpen(false)} href="#about" className="hover:text-[#22c55e] transition-colors">About</a>
+          <a onClick={() => setOpen(false)} href="#story" className="hover:text-[#22c55e] transition-colors">Our Story</a>
+          <a onClick={() => setOpen(false)} href="#vision" className="hover:text-[#22c55e] transition-colors">Our Vision</a>
+          <a onClick={() => setOpen(false)} href="#mission" className="hover:text-[#22c55e] transition-colors">Mission</a>
+          <a onClick={() => setOpen(false)} href="#culture" className="hover:text-[#22c55e] transition-colors">Culture</a>
+          <a onClick={() => setOpen(false)} href="#services" className="hover:text-[#22c55e] transition-colors">Services</a>
+          <a onClick={() => setOpen(false)} href="#contact" className="hover:text-[#22c55e] transition-colors">Contact</a>
 
         </div>
       </div>
