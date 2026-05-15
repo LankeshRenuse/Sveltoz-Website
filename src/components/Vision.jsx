@@ -15,14 +15,14 @@ export default function Vision() {
             <ul className="space-y-4 text-gray-300 leading-relaxed">
 
               <li className="flex gap-3">
-                <span className="text-[#22c55e]">▸</span>
+                <span className="text-[#22c55e] text-3xl ">▸</span>
                 <span>
                   To be a global leader in intelligent digital engineering, helping enterprises harness AI, Machine Learning, Cloud, and Automation.
                 </span>
               </li>
 
               <li className="flex gap-3">
-                <span className="text-[#22c55e]">▸</span>
+                <span className="text-[#22c55e] text-3xl ">▸</span>
                 <span>
                   We envision a future where technology becomes a trusted partner in shaping smarter decisions and impactful innovation.
                 </span>

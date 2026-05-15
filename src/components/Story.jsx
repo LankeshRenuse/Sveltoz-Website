@@ -26,28 +26,28 @@ export default function Story() {
             <ul className="space-y-3 text-gray-300">
 
               <li className="flex gap-3">
-                <span className="text-[#22c55e]">▸</span>
+                <span className="text-[#22c55e] text-3xl ">▸</span>
                 <span>
                   Sveltoz was founded 16 years ago to bridge technology and real-world challenges.
                 </span>
               </li>
 
               <li className="flex gap-3">
-                <span className="text-[#22c55e]">▸</span>
+                <span className="text-[#22c55e] text-3xl ">▸</span>
                 <span>
                   From a small team, we evolved into a company delivering AI, drone, and cloud solutions.
                 </span>
               </li>
 
               <li className="flex gap-3">
-                <span className="text-[#22c55e]">▸</span>
+                <span className="text-[#22c55e] text-3xl ">▸</span>
                 <span>
                   We built a strong reputation for engineering excellence and innovation.
                 </span>
               </li>
 
               <li className="flex gap-3">
-                <span className="text-[#22c55e]">▸</span>
+                <span className="text-[#22c55e] text-3xl ">▸</span>
                 <span>
                   Every solution helps businesses move faster, think smarter, and scale efficiently.
                 </span>

@@ -9,17 +9,12 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ========================= */
-/* ROOT */
-/* ========================= */
-
 :root {
   --step--1: clamp(0.75rem, 1.2vw, 0.875rem);
   --step-0: clamp(0.875rem, 1.6vw, 1.125rem);
   --step-1: clamp(1.125rem, 2.5vw, 1.75rem);
   --step-2: clamp(1.75rem, 5vw, 3.75rem);
   --step-3: clamp(2.5rem, 8vw, 7.5rem);
-
   --space-xs: clamp(0.25rem, 1vh, 0.625rem);
   --space-sm: clamp(0.5rem, 2vh, 1rem);
   --space-md: clamp(0.75rem, 3vh, 1.5rem);
@@ -34,11 +29,16 @@ html {
   scroll-padding-top: 5.625rem;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-
   background:
     radial-gradient(circle at center,
       #061311,
@@ -77,39 +77,85 @@ a,
 
 .hero {
   position: relative;
-
   width: 100%;
   height: 100dvh;
-
+  min-height: 34rem;
   overflow: hidden;
-
   margin-bottom: 10rem;
-
   isolation: isolate;
+}
+
+.phone-hero-brand {
+  display: none;
+}
+
+#about,
+#story,
+#vision,
+#mission,
+#culture,
+#services,
+#contact {
+  overflow-x: clip;
+}
+
+#about > div,
+#story > div,
+#vision > div,
+#mission > div,
+#culture > div,
+#services > div,
+#contact > div {
+  min-width: 0;
+}
+
+#story > div > *,
+#vision > div > *,
+#mission > div > *,
+#culture > div > *,
+#contact > div > * {
+  min-width: 0;
+}
+
+#about .bg-white\/1,
+#story .bg-white\/1,
+#vision .bg-white\/1,
+#mission .bg-white\/1,
+#culture .bg-white\/1,
+#services .bg-white\/1,
+#contact .bg-white\/1 {
+  max-width: 100%;
+}
+
+#story img,
+#vision img,
+#mission img,
+#culture img {
+  min-width: 0;
+}
+
+#services .grid > * {
+  min-width: 0;
+}
+
+#services .drone-icon {
+  flex-shrink: 0;
 }
 
 .hero-banner {
   position: absolute;
-
   top: 50%;
   left: 50%;
-
   width: 100%;
   height: 100%;
-
   min-width: 100%;
   min-height: 100%;
-
   object-fit: cover;
   object-position: center;
-
   transform: translate(-50%, -50%);
-
   z-index: 1;
-
   pointer-events: none;
   user-select: none;
-
   backface-visibility: hidden;
 }
 
@@ -118,10 +164,8 @@ a,
 .hero-particle-overlay {
   position: absolute;
   inset: 0;
-
   z-index: 2;
   pointer-events: none;
-
   background:
     radial-gradient(circle at center,
       rgba(255, 255, 255, 0.04),
@@ -133,12 +177,9 @@ a,
 .hero canvas {
   position: absolute;
   inset: 0;
-
   width: 100%;
   height: 100%;
-
   z-index: 2;
-
   pointer-events: none;
 }
 
@@ -148,20 +189,14 @@ a,
 
 .bg-title {
   position: fixed;
-
   top: 50%;
   left: 50%;
-
   transform: translate(-50%, -50%);
-
   font-family: 'Orbitron', sans-serif;
   font-size: 17vw;
   font-weight: 1000;
-
   letter-spacing: 0.50rem;
-
   color: rgba(151, 173, 169, 0.03);
-
   pointer-events: none;
   z-index: -1;
 }
@@ -172,27 +207,19 @@ a,
 
 .input-style {
   width: 100%;
-
   padding: 0.75rem 0.875rem;
-
   font-size: 1rem;
-
   background: transparent;
   color: #EFFFFA;
-
   border:
     1px solid rgba(143, 255, 214, 0.2);
-
   border-radius: 0.5rem;
-
   outline: none;
-
   transition: 0.3s ease;
 }
 
 .input-style:focus {
   border-color: #8fffd6;
-
   box-shadow:
     0 0 0.625rem rgba(143, 255, 214, 0.3);
 }
@@ -203,17 +230,12 @@ a,
 
 .drone {
   position: fixed;
-
   width: 3.75rem;
   height: 3.75rem;
-
   z-index: 10;
-
   pointer-events: none;
-
   filter:
     drop-shadow(0 0 0.125rem #8fffd6);
-
   transition:
     opacity 0.25s ease,
     scale 0.25s ease,
@@ -222,15 +244,11 @@ a,
 
 .center {
   position: absolute;
-
   top: 50%;
   left: 50%;
-
   width: 0.875rem;
   height: 0.875rem;
-
   background: #8fffd6;
-
   transform: translate(-50%, -50%);
 }
 
@@ -241,15 +259,11 @@ a,
 
 .arm {
   position: absolute;
-
   top: 50%;
   left: 50%;
-
   width: 1.375rem;
   height: 0.09375rem;
-
   background: #8fffd6;
-
   transform-origin: left center;
 }
 
@@ -258,15 +272,12 @@ a,
 .a1 {
   transform: rotate(45deg);
 }
-
 .a2 {
   transform: rotate(135deg);
 }
-
 .a3 {
   transform: rotate(225deg);
 }
-
 .a4 {
   transform: rotate(315deg);
 }
@@ -277,19 +288,14 @@ a,
 
 .rotor {
   position: absolute;
-
   right: -0.625rem;
   top: 50%;
-
   width: 1.625rem;
   height: 1.625rem;
-
   display: flex;
   justify-content: center;
   align-items: center;
-
   transform: translateY(-50%);
-
   animation:
     spin 0.19s linear infinite;
 }
@@ -297,16 +303,11 @@ a,
 .rotor::before,
 .rotor::after {
   content: "";
-
   position: absolute;
-
   width: 0.875rem;
   height: 0.25rem;
-
   background: #078703;
-
   border-radius: 100% 30% 100% 30%;
-
   box-shadow:
     0 0 0.375rem rgba(143, 255, 214, 0.4);
 }
@@ -342,27 +343,20 @@ a,
 
 .drone-radar {
   position: absolute;
-
   top: 50%;
   left: 50%;
-
   width: 6.25rem;
   height: 6.25rem;
-
   transform: translate(-50%, -50%);
 }
 
 .radar-ring {
   position: absolute;
-
   width: 100%;
   height: 100%;
-
   border:
     1px solid rgba(143, 255, 214, 0.25);
-
   border-radius: 50%;
-
   animation:
     radarPulse 2.5s linear infinite;
 }
@@ -383,118 +377,105 @@ a,
   }
 }
 
-/* ========================= */
-/* SIGNAL */
-/* ========================= */
-
-.signal-svg {
-  position: fixed;
-  inset: 0;
-
-  width: 100%;
-  height: 100%;
-
-  z-index: 10;
-
-  pointer-events: none;
-}
-
-.signal-path {
-  fill: none;
-
-  stroke: #8fffd661;
-  stroke-width: 2px;
-
-  stroke-linecap: round;
-  stroke-linejoin: round;
-
-  filter:
-    drop-shadow(0 0 6px rgba(143, 255, 214, 0.6));
-}
-
-.signal-svg circle {
-  fill: #8fffd6;
-
-  filter:
-    drop-shadow(0 0 6px #8fffd6);
-}
 
 /* ========================= */
-/* ANTENNA */
+/* RESPONSIVE DESKTOP */
 /* ========================= */
 
-.antenna {
-  position: fixed;
+@media (min-width: 769px) and (max-width: 1180px) {
 
-  width: 5rem;
-  height: 5rem;
-
-  z-index: 10;
-
-  pointer-events: none;
-}
-
-.left-antenna {
-  top: 13%;
-  left: 0;
-
-  transform: scaleY(-1);
-}
-
-.right-antenna {
-  bottom: 1%;
-  right: 0;
-}
-
-.antenna-svg {
-  width: 100%;
-  height: 100%;
-}
-
-.antenna-wave {
-  position: relative;
-
-  top: 50%;
-  left: 50%;
-
-  width: 1.25rem;
-  height: 1.25rem;
-
-  transform:
-    translate(-50%, -130%);
-}
-
-.antenna-wave::before,
-.antenna-wave::after {
-  content: "";
-
-  position: absolute;
-
-  width: 100%;
-  height: 100%;
-
-  border:
-    1px solid #8fffd6;
-
-  border-radius: 50%;
-
-  animation:
-    radarWave 2s linear infinite;
-}
-
-.antenna-wave::after {
-  animation-delay: 1s;
-}
-
-@keyframes radarWave {
-  from {
-    transform: scale(0.5);
-    opacity: 0.6;
+  .hero {
+    height: 82svh;
+    min-height: 32rem;
+    margin-bottom: 5rem;
   }
 
-  to {
-    transform: scale(3);
-    opacity: 0;
+  nav img {
+    height: 2.5rem !important;
+  }
+
+  nav .space-x-8 > :not([hidden]) ~ :not([hidden]) {
+    margin-left: 0.85rem !important;
+  }
+
+  nav .text-sm {
+    font-size: 0.72rem !important;
+  }
+
+  #about,
+  #story,
+  #vision,
+  #mission,
+  #culture,
+  #services,
+  #contact {
+    padding-inline: 1.25rem !important;
+  }
+
+  #about > div,
+  #story > div,
+  #vision > div,
+  #mission > div,
+  #culture > div,
+  #contact > div {
+    gap: 1.75rem !important;
+  }
+
+  #about .bg-white\/1,
+  #story .bg-white\/1,
+  #vision .bg-white\/1,
+  #mission .bg-white\/1,
+  #culture .bg-white\/1,
+  #contact .bg-white\/1 {
+    padding: 1.5rem !important;
+  }
+
+  #story img,
+  #vision img,
+  #culture img {
+    height: 22rem !important;
+  }
+
+  #mission img {
+    max-height: 22rem !important;
+  }
+
+  #services .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 1.5rem !important;
+  }
+
+  #services .bg-white\/1 {
+    padding: 1.5rem !important;
+  }
+}
+
+@media (min-width: 1181px) and (max-width: 1360px) {
+
+  nav .space-x-8 > :not([hidden]) ~ :not([hidden]) {
+    margin-left: 1.4rem !important;
+  }
+
+  #services .grid {
+    gap: 2rem !important;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 920px) {
+
+  .hero {
+    height: 74svh;
+    min-height: 30rem;
+    margin-bottom: 4rem;
+  }
+
+  #contact > .max-w-6xl {
+    grid-template-columns: 1fr !important;
+    max-width: 42rem;
+  }
+
+  #contact form .grid {
+    grid-template-columns: 1fr !important;
   }
 }
 
@@ -505,13 +486,60 @@ a,
 @media (max-width: 768px) {
 
   .hero {
-    height: 100svh;
-    margin-bottom: 3rem;
+    height: min(48svh, 30rem);
+    min-height: 24rem;
+    margin-bottom: 0;
   }
 
   .hero-banner {
     width: auto;
     height: 100%;
+  }
+
+  .hero > video {
+    display: none !important;
+  }
+
+  .phone-hero-brand {
+    position: absolute;
+    inset: 0;
+    z-index: 15;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4.75rem 1rem 1.5rem;
+    text-align: center;
+  }
+
+  .phone-hero-logo {
+    width: 8.5rem;
+    height: auto;
+    margin-bottom: 1.1rem;
+    filter:
+      drop-shadow(0 0 1rem rgba(34, 197, 94, 0.35));
+  }
+
+  .phone-hero-title {
+    margin: 0;
+    color: #EFFFFA;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3.55rem;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0;
+  }
+
+
+  /* blink name */
+  .phone-hero-title span {
+    color: #22c55e;
+    animation:
+      sveltozBlink 1.05s ease-in-out infinite;
+    text-shadow:
+      0 0 0.5rem rgba(34, 197, 94, 0.85),
+      0 0 1.25rem rgba(34, 197, 94, 0.55);
   }
 
   svg.signal-svg,
@@ -528,10 +556,8 @@ a,
   #services,
   #contact {
     width: 100% !important;
-
     padding-inline: 0.8rem !important;
     padding-block: 3.5rem !important;
-
     overflow: hidden;
     box-sizing: border-box;
   }
@@ -540,9 +566,7 @@ a,
   #contact .max-w-6xl {
     display: flex !important;
     flex-direction: column !important;
-
     align-items: center;
-
     gap: 1rem;
   }
 
@@ -566,11 +590,8 @@ a,
   #services .bg-white\/1,
   #contact .bg-white\/1 {
     width: 100% !important;
-
     max-width: min(92vw, 22rem) !important;
-
     margin-inline: auto;
-
     box-sizing: border-box;
   }
 
@@ -649,6 +670,80 @@ a,
   }
 }
 
+@media (max-width: 640px) {
+
+  .hero {
+    height: min(56svh, 25rem);
+    min-height: 22rem;
+    margin-bottom: 0;
+
+  }
+  .phone-hero-brand {
+    padding: 4.5rem 1rem 1.5rem;
+  }
+
+  .phone-hero-logo {
+    width: 7rem;
+    height: auto;
+    margin-bottom: 1rem;
+    filter:
+      drop-shadow(0 0 1rem rgba(34, 197, 94, 0.35));
+  }
+
+  .phone-hero-title {
+    margin: 0;
+    color: #EFFFFA;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0;
+  }
+
+}
+
+@media (min-width: 480px) and (max-width: 640px) {
+
+  .hero {
+    height: min(58svh, 27rem);
+    min-height: 24rem;
+  }
+  .phone-hero-logo {
+    width: 8rem;
+  }
+  .phone-hero-title {
+    font-size: 3.45rem;
+  }
+}
+
+@media (max-width: 360px) {
+
+  .hero {
+    height: 20rem;
+    min-height: 20rem;
+  }
+  .phone-hero-logo {
+    width: 6rem;
+  }
+  .phone-hero-title {
+    font-size: 2.55rem;
+  }
+}
+
+@keyframes sveltozBlink {
+
+  0%,
+  100% {
+    opacity: 1;
+    filter:
+      brightness(1.35);
+  }
+  50% {
+    opacity: 0.28;
+    filter:
+      brightness(0.75);
+  }
+}
 
 .drone-icon {
   filter: drop-shadow(0 0 6px rgba(34, 197, 94, 0.6));

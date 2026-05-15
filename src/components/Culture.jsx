@@ -25,22 +25,22 @@ export default function Culture() {
             <ul className="space-y-3 text-gray-300">
 
               <li className="flex gap-3">
-                <span className="text-[#22c55e]">▸</span>
+                <span className="text-[#22c55e] text-3xl">▸</span>
                 <span><b className="text-white">Innovation:</b> Embracing what’s next</span>
               </li>
 
               <li className="flex gap-3">
-                <span className="text-[#22c55e]">▸</span>
+                <span className="text-[#22c55e] text-3xl">▸</span>
                 <span><b className="text-white">Integrity:</b> Transparency & trust</span>
               </li>
 
               <li className="flex gap-3">
-                <span className="text-[#22c55e]">▸</span>
+                <span className="text-[#22c55e] text-3xl">▸</span>
                 <span><b className="text-white">Excellence:</b> Precision & quality</span>
               </li>
 
               <li className="flex gap-3">
-                <span className="text-[#22c55e]">▸</span>
+                <span className="text-[#22c55e] text-3xl ">▸</span>
                 <span><b className="text-white">Collaboration:</b> Growing together</span>
               </li>
 

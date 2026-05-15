@@ -53,21 +53,21 @@ export default function Navbar() {
   return (
     <>
       {/* ================= NAVBAR ================= */}
-      <nav className="fixed top-0 left-0 w-full z-50 bg-[#020404]/90 md:bg-black/60 backdrop-blur-md border-b border-[#22c55e]/20 md:border-b-0">
+      <nav className="fixed top-0 left-0 w-full z-50 bg-[#020404]/90 xl:bg-black/60 backdrop-blur-md border-b border-[#22c55e]/20 xl:border-b-0">
 
-        <div className="flex justify-between items-center px-4 md:px-10 py-3 md:py-5">
+        <div className="flex justify-between items-center px-4 xl:px-10 py-3 xl:py-5">
 
           {/* LOGO */}
           <a href="#home">
             <img
               src="/logo.png"
               alt="logo"
-              className="h-9 md:h-12 object-contain"
+              className="h-9 xl:h-12 object-contain"
             />
           </a>
 
           {/* ================= DESKTOP ================= */}
-          <div className="hidden md:flex space-x-8 text-white text-sm  ">
+          <div className="hidden xl:flex space-x-8 text-white text-sm  ">
             <a href="#home" className={linkClass("home") }>HOME</a>
             <a href="#about" className={linkClass("about")}>ABOUT</a>
             <a href="#story" className={linkClass("story")}>OUR STORY</a>
@@ -81,7 +81,7 @@ export default function Navbar() {
           {/* ================= MOBILE BUTTON ================= */}
           <button
             onClick={() => setOpen(true)}
-            className="md:hidden flex flex-col gap-1"
+            className="xl:hidden flex flex-col gap-1"
           >
             <span className="w-6 h-[2px] bg-[#22c55e]"></span>
             <span className="w-6 h-[2px] bg-[#22c55e]"></span>
@@ -104,7 +104,7 @@ export default function Navbar() {
       {/* ================= MOBILE DRAWER ================= */}
       <div
         className={`
-          fixed top-0 right-0 h-full w-[260px]
+          fixed top-0 right-0 h-full w-[min(82vw,320px)]
           bg-[#020404]/95 text-[#EFFFFA] z-50
           transform transition-transform duration-300 ease-in-out
           ${open ? "translate-x-0" : "translate-x-full"}

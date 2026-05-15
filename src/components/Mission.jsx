@@ -43,21 +43,21 @@ export default function Mission() {
           <ul className="space-y-4 text-gray-300 mb-6">
 
             <li className="flex gap-3">
-              <span className="text-[#22c55e]">▸</span>
+              <span className="text-[#22c55e] text-3xl">▸</span>
               <span>
                 <b className="text-white">Innovate Relentlessly:</b> Turning emerging technologies into business advantage.
               </span>
             </li>
 
             <li className="flex gap-3">
-              <span className="text-[#22c55e]">▸</span>
+              <span className="text-[#22c55e] text-3xl">▸</span>
               <span>
                 <b className="text-white">Engineer Excellence:</b> Delivering high-quality solutions that exceed expectations.
               </span>
             </li>
 
             <li className="flex gap-3">
-              <span className="text-[#22c55e]">▸</span>
+              <span className="text-[#22c55e] text-3xl">▸</span>
               <span>
                 <b className="text-white">Empower Growth:</b> Enabling businesses to scale and succeed.
               </span>

@@ -212,7 +212,7 @@ export default function ParticleBackground() {
     // =========================
     const handleResize = () => {
 
-      if (window.innerWidth <= 768) {
+      if (window.innerWidth <= 640) {
 
         destroyParticles();
 

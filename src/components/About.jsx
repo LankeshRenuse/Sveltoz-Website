@@ -56,22 +56,22 @@ export default function About() {
           <ul className="space-y-3 md:space-y-4 text-gray-300 text-sm md:text-base lg:text-lg">
 
             <li className="flex gap-3 items-start">
-              <span className="text-[#22c55e] mt-1">▸</span>
+              <span className="text-[#22c55e] mt-1 text-3xl">▸</span>
               <span>AI-powered solutions for real-world impact</span>
             </li>
 
             <li className="flex gap-3 items-start">
-              <span className="text-[#22c55e] mt-1">▸</span>
+              <span className="text-[#22c55e] mt-1 text-3xl">▸</span>
               <span>Drone innovation transforming industries</span>
             </li>
 
             <li className="flex gap-3 items-start">
-              <span className="text-[#22c55e] mt-1">▸</span>
+              <span className="text-[#22c55e] mt-1 text-3xl">▸</span>
               <span>Secure and scalable digital ecosystems</span>
             </li>
 
             <li className="flex gap-3 items-start">
-              <span className="text-[#22c55e] mt-1">▸</span>
+              <span className="text-[#22c55e] mt-1 text-3xl">▸</span>
               <span>Collaborative culture with continuous learning</span>
             </li>
 
