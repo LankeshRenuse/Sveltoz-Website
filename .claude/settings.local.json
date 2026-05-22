@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run *)",
+      "Bash(powershell -Command \"Compress-Archive -Path 'dist\\\\*' -DestinationPath 'deploy-frontend.zip' -Force\")",
+      "Bash(powershell -Command \"Compress-Archive -Path 'server\\\\server.js' -DestinationPath 'deploy-backend.zip' -Force\")"
+    ]
+  }
+}
