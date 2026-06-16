@@ -1,6 +1,7 @@
-require("dotenv").config();
-
 const path = require("path");
+// Load server/.env by absolute path so it works no matter the process cwd
+// (PM2 runs from the project root, not from server/).
+require("dotenv").config({ path: path.join(__dirname, ".env") });
 const express = require("express");
 const nodemailer = require("nodemailer");
 const cors = require("cors");
@@ -19,19 +20,29 @@ console.log("SMTP HOST:", process.env.SMTP_HOST);
 console.log("SMTP PORT:", process.env.SMTP_PORT);
 console.log("HR EMAIL:", process.env.HR_EMAIL);
 
+const smtpPort = Number(process.env.SMTP_PORT) || 587;
+
 const transporter = nodemailer.createTransport({
 
   host: process.env.SMTP_HOST,
 
-  port: process.env.SMTP_PORT,
+  port: smtpPort,
 
-  secure: false,
+  secure: smtpPort === 465,
 
   auth: {
     user: process.env.SMTP_USER,
     pass: process.env.SMTP_PASS,
   },
 
+});
+
+if (!process.env.SMTP_HOST) {
+  console.error("WARNING: SMTP_HOST is not set — check server/.env.");
+}
+transporter.verify((err) => {
+  if (err) console.error("SMTP verify failed:", err.message);
+  else console.log("SMTP transporter ready:", process.env.SMTP_HOST + ":" + smtpPort);
 });
 
 app.post("/send-email", async (req, res) => {
