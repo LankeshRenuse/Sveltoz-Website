@@ -301,7 +301,7 @@ const CardItem = ({ text }) => (
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: true, amount: 0.1 }}
         >
           {loopedServices.map((service, index) => (
             <motion.div
