@@ -6,7 +6,7 @@ import { BadgeCheck, Users, Cpu, ShieldCheck } from "lucide-react";
 
 const slides = [
   {
-    title: " 16+ YEARS OF PROVEN ENTERPRISE SOFTWARE DEVELOPMENT",
+    title: " 17+ YEARS OF PROVEN ENTERPRISE SOFTWARE DEVELOPMENT",
     subtitle:
       "Modern enterprise software, scalable applications and secure digital platforms for growing businesses. Built to streamline operations and support long-term digital growth.",
     image: "/software.jpg",
