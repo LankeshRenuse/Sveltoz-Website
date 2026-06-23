@@ -55,7 +55,7 @@ export default function Story() {
               }}
             >
              <motion.img
-  src="/our-story.png"
+  src="/img/our-story.webp"
   alt="Story"
   className="w-full max-w-full md:max-w-full h-auto object-contain rounded-2xl"
 

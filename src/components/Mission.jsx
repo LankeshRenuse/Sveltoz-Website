@@ -48,7 +48,7 @@ export default function Mission() {
               }}
             >
               <motion.img
-                src="/mission.jpg"
+                src="/img/mission.webp"
                 alt="Mission"
                 className="w-full h-auto object-cover"
                 initial={{ scale: 1.1 }}

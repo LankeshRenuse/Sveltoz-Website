@@ -101,7 +101,7 @@ export default function Culture() {
               }}
             >
               <motion.img
-                src="/culture.png"
+                src="/img/culture.webp"
                 alt="Culture"
                 className="w-full h-auto object-cover"
                 // Inner image scales down slightly as it comes in to create camera depth

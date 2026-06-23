@@ -88,7 +88,7 @@ export default function Vision() {
               }}
             >
               <motion.img
-                src="/vision.png"
+                src="/img/vision.webp"
                 alt="Vision"
                 className="w-full h-auto object-cover"
                 // Inner image scales down slightly as it comes in to create camera depth

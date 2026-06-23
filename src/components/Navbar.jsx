@@ -107,7 +107,7 @@ export default function Navbar() {
           {/* LOGO */}
           <a href="#home" className="z-50 relative flex items-cover h-full">
             <img
-              src="/logo.png"
+              src="/img/logo.webp"
               alt="logo"
               className="h-11 w-auto object-contain scale-[1.33] transition-transform duration-300 hover:scale-[1.45]"
             />
@@ -115,7 +115,7 @@ export default function Navbar() {
 
           {/* ================= DESKTOP ================= */}
           {/* REDUCED space between links (space-x-6 instead of 8) */}
-          <div className="hidden xl:flex space-x-6 text-white text-sm relative items-center">
+          <div className="hidden xl:flex space-x-2 text-white text-sm relative items-center">
             {sections.map((id) => (
               <motion.a
                 key={id}
@@ -127,7 +127,7 @@ export default function Navbar() {
                 }`}
               >
                 {id}
-                {/* MAGIC UNDERLINE ANIMATION */}
+                {/*  UNDERLINE ANIMATION */}
                 {active === id && (
                   <motion.div
                     layoutId="activeSection"

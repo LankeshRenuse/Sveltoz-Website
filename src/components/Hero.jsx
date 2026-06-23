@@ -9,57 +9,57 @@ const slides = [
     title: " 17+ YEARS OF PROVEN ENTERPRISE SOFTWARE DEVELOPMENT",
     subtitle:
       "Modern enterprise software, scalable applications and secure digital platforms for growing businesses. Built to streamline operations and support long-term digital growth.",
-    image: "/software.jpg",
-    bg: "/software-bg.jpg",
+    image: "/img/software.webp",
+    bg: "/img/software-bg.webp",
   },
   {
     title: "AI / ML SOLUTIONS",
     subtitle:
       "Intelligent AI systems, machine learning models, predictive analytics and automation solutions. Designed to turn data into actionable intelligence for smarter decisions.",
-    image: "/AI-ML.jpg",
-    bg: "/AI-bg.jpg",
+    image: "/img/AI-ML.webp",
+    bg: "/img/AI-bg.webp",
   },
   {
     title: "DATA ENGINEERING & ANALYTICS",
     subtitle:
       "Real-time analytics, big data pipelines and intelligent business intelligence systems. Helping organizations unlock insights from complex data ecosystems.",
-    image: "/data.jpg",
-    bg: "/data-bg.jpg",
+    image: "/img/data.webp",
+    bg: "/img/data-bg.webp",
   },
   {
     title: "QUALITY ASSURANCE & TESTING",
     subtitle:
       "Automated QA systems, performance testing and software reliability optimization services. Ensuring stable, secure and high-quality digital product delivery.",
-    image: "/QA.jpg",
-    bg: "/QA-bg.png",
+    image: "/img/QA.webp",
+    bg: "/img/QA-bg.webp",
   },
   {
     title: "SAP CONSULTING & IMPLEMENTATION",
     subtitle:
       "Enterprise SAP consulting, implementation, migration and integration solutions. Enabling seamless business process transformation across systems.",
-    image: "/sap.jpg",
-    bg: "/sap-bg.jpg",
+    image: "/img/sap.webp",
+    bg: "/img/sap-bg.webp",
   },
   {
     title: "CLOUD & INFRASTRUCTURE SERVICES",
     subtitle:
       "Secure cloud architecture, DevOps infrastructure and scalable deployment environments. Optimized for performance, security, and enterprise-grade reliability.",
-    image: "/cloud.jpg",
-    bg: "/cloud-bg.jpg",
+    image: "/img/cloud.webp",
+    bg: "/img/cloud-bg.webp",
   },
   {
     title: "AUTOMATION & DIGITAL TRANSFORMATION",
     subtitle:
       "Business workflow automation and digital transformation solutions for modern enterprises. Reducing manual effort while increasing operational efficiency.",
-    image: "/auto.jpg",
-    bg: "/auto-bg.jpg",
+    image: "/img/auto.webp",
+    bg: "/img/auto-bg.webp",
   },
   {
     title: "TECHNOLOGY CONSULTING & INNOVATION",
     subtitle:
       "Innovation-driven consulting services helping startups and enterprises scale with technology. Focused on strategy, growth, and future-ready digital solutions.",
-    image: "/inno.jpg",
-    bg: "/inno-bg.jpg",
+    image: "/img/inno.webp",
+    bg: "/img/inno-bg.webp",
   },
 ];
 
