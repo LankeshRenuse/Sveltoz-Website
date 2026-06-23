@@ -144,7 +144,7 @@ export default function Services() {
     const autoScroll = () => {
       if (!scrollRef.current) return;
       if (!isHovered && !isDragging.current && !isButtonScrolling.current) {
-        scrollRef.current.scrollLeft += 1.5;
+        scrollRef.current.scrollLeft += 1;
         // Reset scroll position for infinite loop
         if (scrollRef.current.scrollLeft >= scrollRef.current.scrollWidth / 2) {
           scrollRef.current.scrollLeft = 0;
