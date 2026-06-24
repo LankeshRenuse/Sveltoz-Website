@@ -133,7 +133,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen overflow-hidden flex items-center justify-center bg-black touch-pan-y"
+      className="relative h-[85vh] min-h-[720px] overflow-hidden flex items-center bg-black touch-pan-y"
       onTouchStart={(e) => (window.touchStartX = e.touches[0].clientX)}
       onTouchEnd={(e) => {
         const endX = e.changedTouches[0].clientX;

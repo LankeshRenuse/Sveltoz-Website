@@ -210,7 +210,7 @@ export default function Contact() {
       y: 0,
       transition: {
         type: "spring",
-        stiffness: 100, // Softer spring for realistic weight
+        stiffness: 100, // Softer spring for realistic weight 
         damping: 18, // High damping so it settles smoothly without wobbling
         mass: 1,
       },
@@ -251,7 +251,7 @@ export default function Contact() {
         
        {/* LEFT SIDE */}
 <motion.div
-  className="space-y-8 mt-6 order-2 md:order-1"
+  className="space-y-8 mt-6 order-2 md:order-1 px-2 text-left"
   variants={leftContainerVariants}
   initial="hidden"
   whileInView="visible"
@@ -271,28 +271,17 @@ export default function Contact() {
             >
               Sveltoz Solutions Pvt. Ltd.
             </motion.h3>
-          <motion.p
+         <motion.p
   variants={leftItemVariants}
-  className="text-gray-300 mt-2 leading-relaxed flex flex-col items-center md:items-start"
+className="text-gray-300 mt-2 leading-relaxed text-left"
 >
-  {/* This wrapper keeps the block tidy and aligned */}
-  <span className="w-fit text-center md:text-left">
-    <span className="block">Show Room Right, 83, Deodar, 2nd Floor, Lane 1</span>
-    <span className="block">Behind Royal Enfield, Bhusari Colony, Kothrud</span>
-    <span className="block">Pune, Maharashtra 411038, India</span>
-  </span>
+  Show Room Right, 83, Deodar, 2nd Floor, Lane 1
+  <br />
+  Behind Royal Enfield, Bhusari Colony, Kothrud
+  <br />
+  Pune, Maharashtra 411038, India
 </motion.p>
 
-            <motion.div variants={leftItemVariants} className="mt-4">
-              <a
-                href="https://www.linkedin.com/company/sveltoz-solutions-pvt-ltd/posts/?feedView=all"
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-2 border border-[#22c55e]/40 text-[#22c55e] px-5 py-2.5 rounded-lg hover:bg-[#22c55e]/10 hover:shadow-[0_0_20px_rgba(34,197,94,0.25)] transition-all duration-300"
-              >
-                LinkedIn -&gt;
-              </a>
-            </motion.div>
           </div>
 
           {/* ITEM 2: US PARTNER */}
@@ -309,14 +298,24 @@ export default function Contact() {
             >
               US Partner
             </motion.h3>
+ <div className="max-w-sm">
   <motion.p
-  variants={leftItemVariants}
-  className="text-gray-300 mt-2 leading-relaxed text-center md:text-left"
->
-  <span className="block font-semibold text-white">CerebralAlpha Tech</span>
-  <span className="block">4116 Berry Ridge Road</span>
-  <span className="block">Frisco, Texas 75036, USA</span>
-</motion.p>
+    variants={leftItemVariants}
+    className="text-gray-300 mt-2 leading-relaxed text-left"
+  >
+    <span className="block font-semibold text-white">
+      CerebralAlpha Tech
+    </span>
+
+    <span className="block">
+      4116 Berry Ridge Road
+    </span>
+
+    <span className="block">
+      Frisco, Texas 75036, USA
+    </span>
+  </motion.p>
+</div>
 
             <motion.div variants={leftItemVariants} className="mt-4">
               <a
