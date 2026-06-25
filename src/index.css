@@ -389,7 +389,8 @@ footer.glow-target {
     height: min(48svh, 30rem);
     min-height: 24rem;
     margin-bottom: 0;
-  
+  }
+
   #about,
   #story,
   #vision,
@@ -504,6 +505,7 @@ footer.glow-target {
     font-size: 0.82rem;
     line-height: 1.7;
   }
+}
 
 
   /* ========================= */
@@ -574,7 +576,6 @@ footer.glow-target {
   }
 }
 
-  
 @keyframes float {
   0% {
     transform: translateY(0px);
@@ -591,9 +592,6 @@ footer.glow-target {
 
 .animate-float {
   animation: float 5s ease-in-out infinite;
-}
-
-}
 }
 
 
@@ -628,5 +626,3 @@ li span.text-\[\#22c55e\] {
   display: inline-block; /* Required for transforms to behave correctly on inline elements */
   transform: none !important;
 }
-
-

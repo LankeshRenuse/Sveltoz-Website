@@ -5,12 +5,13 @@ import { motion } from "framer-motion";
 import Swal from "sweetalert2";
 
 const CONTACT_API_URL =
-  import.meta.env.VITE_CONTACT_API_URL || "http://localhost:5000/send-email";
+  import.meta.env.VITE_CONTACT_API_URL ||
+  "https://sveltoz.com/api/send-mail.php";
 
 export default function Contact() {
   const formRef = useRef();
 
-  const [openSocials, setOpenSocials] = useState(false);
+  const [openSocials, setOpenSocials] = useState(false);  
   const [loading, setLoading] = useState(false);
   const [glow, setGlow] = useState(false);
 
@@ -57,6 +58,29 @@ export default function Contact() {
     const message = formRef.current.message.value.trim();
 
     // Name validation
+
+
+
+
+
+// Phone validation (optional field)
+if (phone) {
+  const phoneRegex = /^\+?[0-9\s]{7,20}$/;
+
+  if (!phoneRegex.test(phone)) {
+    setLoading(false);
+    Swal.fire({
+      icon: "warning",
+      title: "Invalid Phone Number",
+      text: "Please enter a valid phone number.",
+      background: "#0b0f14",
+      color: "#fff",
+      confirmButtonColor: "#22c55e",
+    });
+    return;
+  }
+}
+
     if (!user_name) {
       setLoading(false);
       Swal.fire({
@@ -450,17 +474,18 @@ className="text-gray-300 mt-2 leading-relaxed text-left"
     name="phone"
     type="tel"
     placeholder="Enter Phone Number"
-    autoComplete="tel"
-    pattern="^\\+?[0-9]{7,15}$"
-    maxLength={16}
-    className="input-style"
-    onInput={(e) => {
-      e.target.value = e.target.value.replace(/\s/g, "");
-    }}
+  autoComplete="tel"
+  maxLength={20}
+  className="input-style"
+  onInput={(e) => {
+    e.target.value = e.target.value
+      .replace(/[^\d+\s]/g, "")
+      .replace(/(?!^)\+/g, "");
+  }}
     onMouseEnter={moveMagnet}
-    onFocus={moveMagnet}
-    onBlur={resetMagnet}
-  />
+  onFocus={moveMagnet}
+  onBlur={resetMagnet}
+/>
 
 
 </div>

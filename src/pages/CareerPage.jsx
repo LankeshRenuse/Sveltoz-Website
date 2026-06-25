@@ -1,12 +1,23 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import Swal from "sweetalert2";
 import Navbar from "../components/Navbar";
 import BackgroundFX from "../components/BackgroundFX";
 import ParticleBackground from "../components/ParticleBackground";
 
 export default function CareerPage() {
+
+
+  const CAREER_API_URL =
+  import.meta.env.VITE_CAREER_API_URL ||
+  "https://sveltoz.com/api/send-mail-career.php";
+
+const formRef = useRef(null);
+const [loading, setLoading] = useState(false);
+
+
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "instant" });
   }, []);
@@ -41,6 +52,161 @@ export default function CareerPage() {
   const resetMagnet = () => {
     setMagnet((prev) => ({ ...prev, visible: false }));
   };
+
+  const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  setLoading(true);
+
+  const form = formRef.current;
+
+  const user_name = form.user_name.value.trim();
+  const user_email = form.user_email.value.trim();
+  const phone = form.phone.value.trim();
+  const position = form.position.value.trim();
+  const message = form.message.value.trim();
+  const resume = form.resume.files[0];
+
+  if (!user_name || /^\d+$/.test(user_name)) {
+    setLoading(false);
+
+    Swal.fire({
+      icon: "warning",
+      title: "Invalid Name",
+      text: "Please enter a valid full name.",
+      background: "#0b0f14",
+      color: "#fff",
+      confirmButtonColor: "#22c55e",
+    });
+
+    return;
+  }
+
+  if (!position) {
+    setLoading(false);
+
+    Swal.fire({
+      icon: "warning",
+      title: "Position Required",
+      text: "Please enter the position you are applying for.",
+      background: "#0b0f14",
+      color: "#fff",
+      confirmButtonColor: "#22c55e",
+    });
+
+    return;
+  }
+
+  if (!message || message.length < 20 || /^\d+$/.test(message)) {
+    setLoading(false);
+
+    Swal.fire({
+      icon: "warning",
+      title: "Invalid Description",
+      text: "Please enter at least 20 characters.",
+      background: "#0b0f14",
+      color: "#fff",
+      confirmButtonColor: "#22c55e",
+    });
+
+    return;
+  }
+
+  if (!resume) {
+    setLoading(false);
+
+    Swal.fire({
+      icon: "warning",
+      title: "Resume Required",
+      text: "Please upload your resume.",
+      background: "#0b0f14",
+      color: "#fff",
+      confirmButtonColor: "#22c55e",
+    });
+
+    return;
+  }
+
+  const allowedTypes = [
+    "application/pdf",
+    "application/msword",
+    "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+  ];
+
+  if (!allowedTypes.includes(resume.type)) {
+    setLoading(false);
+
+    Swal.fire({
+      icon: "warning",
+      title: "Invalid File",
+      text: "Only PDF, DOC and DOCX files are allowed.",
+      background: "#0b0f14",
+      color: "#fff",
+      confirmButtonColor: "#22c55e",
+    });
+
+    return;
+  }
+
+  if (resume.size > 5 * 1024 * 1024) {
+    setLoading(false);
+
+    Swal.fire({
+      icon: "warning",
+      title: "File Too Large",
+      text: "Resume size must be less than 5 MB.",
+      background: "#0b0f14",
+      color: "#fff",
+      confirmButtonColor: "#22c55e",
+    });
+
+    return;
+  }
+
+  try {
+    const formData = new FormData();
+
+    formData.append("user_name", user_name);
+    formData.append("user_email", user_email);
+    formData.append("phone", phone);
+    formData.append("position", position);
+    formData.append("message", message);
+    formData.append("resume", resume);
+
+    const response = await fetch(CAREER_API_URL, {
+      method: "POST",
+      body: formData,
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error(data.message);
+    }
+
+    Swal.fire({
+      icon: "success",
+      title: "Application Submitted!",
+      text: "We will contact you soon.",
+      background: "#0b0f14",
+      color: "#fff",
+      confirmButtonColor: "#22c55e",
+    });
+
+    form.reset();
+  } catch (error) {
+    Swal.fire({
+      icon: "error",
+      title: "Oops!",
+      text: error.message || "Server error.",
+      background: "#0b0f14",
+      color: "#fff",
+      confirmButtonColor: "#22c55e",
+    });
+  } finally {
+    setLoading(false);
+  }
+};
 
   return (
     <>
@@ -139,10 +305,15 @@ export default function CareerPage() {
       Apply Now
     </h2>
 
-    <form className="grid md:grid-cols-2 gap-6">
+  <form
+  ref={formRef}
+  onSubmit={handleSubmit}
+  className="grid md:grid-cols-2 gap-6"
+>
 
       <input
         type="text"
+        name="user_name"
         placeholder="Full Name"
         className="input"
         onMouseEnter={moveMagnet}
@@ -152,6 +323,7 @@ export default function CareerPage() {
 
       <input
         type="email"
+         name="user_email"
         placeholder="Email Address"
         className="input"
         onMouseEnter={moveMagnet}
@@ -161,6 +333,7 @@ export default function CareerPage() {
 
       <input
         type="tel"
+        name="phone"
         placeholder="Phone Number"
         className="input"
         onMouseEnter={moveMagnet}
@@ -170,6 +343,7 @@ export default function CareerPage() {
 
       <input
         type="text"
+          name="position"
         placeholder="Position Applying For"
         className="input"
         onMouseEnter={moveMagnet}
@@ -180,6 +354,7 @@ export default function CareerPage() {
       <div className="md:col-span-2">
         <input
           type="file"
+          name="resume"
           className="file"
           onMouseEnter={moveMagnet}
           onFocus={moveMagnet}
@@ -190,6 +365,7 @@ export default function CareerPage() {
       <div className="md:col-span-2">
         <textarea
           rows="5"
+          name="message"
           placeholder="Tell us about yourself..."
           className="input resize-none"
           onMouseEnter={moveMagnet}
@@ -199,9 +375,13 @@ export default function CareerPage() {
       </div>
 
       <div className="md:col-span-2">
-        <button className="btn">
-          Submit Application
-        </button>
+        <button
+  type="submit"
+  disabled={loading}
+  className="btn disabled:opacity-50"
+>
+  {loading ? "Submitting..." : "Submit Application"}
+</button>
       </div>
 
     </form>

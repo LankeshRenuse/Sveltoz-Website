@@ -6,58 +6,58 @@ import { BadgeCheck, Users, Cpu, ShieldCheck } from "lucide-react";
 
 const slides = [
   {
-    title: " 17+ YEARS OF PROVEN ENTERPRISE SOFTWARE DEVELOPMENT",
+    title: "17+ YEARS OF PROVEN ENTERPRISE SOFTWARE DEVELOPMENT",
     subtitle:
-      "Modern enterprise software, scalable applications and secure digital platforms for growing businesses. Built to streamline operations and support long-term digital growth.",
+      "Delivering scalable, secure, and high-performance software solutions that help businesses accelerate growth, optimize operations, and stay ahead in a rapidly evolving digital landscape.",
     image: "/img/software.webp",
     bg: "/img/software-bg.webp",
   },
   {
     title: "AI / ML SOLUTIONS",
     subtitle:
-      "Intelligent AI systems, machine learning models, predictive analytics and automation solutions. Designed to turn data into actionable intelligence for smarter decisions.",
+      "Transform data into intelligent business outcomes with AI-powered automation, predictive analytics, and machine learning solutions tailored to real-world enterprise challenges.",
     image: "/img/AI-ML.webp",
     bg: "/img/AI-bg.webp",
   },
   {
     title: "DATA ENGINEERING & ANALYTICS",
     subtitle:
-      "Real-time analytics, big data pipelines and intelligent business intelligence systems. Helping organizations unlock insights from complex data ecosystems.",
+      "Build a strong data foundation with modern analytics platforms and scalable data pipelines that enable faster insights, better decisions, and measurable business impact.",
     image: "/img/data.webp",
     bg: "/img/data-bg.webp",
   },
   {
     title: "QUALITY ASSURANCE & TESTING",
     subtitle:
-      "Automated QA systems, performance testing and software reliability optimization services. Ensuring stable, secure and high-quality digital product delivery.",
+      "Ensure reliable, secure, and flawless digital experiences through comprehensive testing strategies that improve product quality and accelerate release cycles.",
     image: "/img/QA.webp",
     bg: "/img/QA-bg.webp",
   },
   {
     title: "SAP CONSULTING & IMPLEMENTATION",
     subtitle:
-      "Enterprise SAP consulting, implementation, migration and integration solutions. Enabling seamless business process transformation across systems.",
+      "Streamline enterprise operations with end-to-end SAP consulting, implementation, and integration services designed to maximize efficiency and business performance.",
     image: "/img/sap.webp",
     bg: "/img/sap-bg.webp",
   },
   {
     title: "CLOUD & INFRASTRUCTURE SERVICES",
     subtitle:
-      "Secure cloud architecture, DevOps infrastructure and scalable deployment environments. Optimized for performance, security, and enterprise-grade reliability.",
+      "Leverage secure and scalable cloud environments that improve agility, optimize costs, and provide the foundation for sustainable digital transformation.",
     image: "/img/cloud.webp",
     bg: "/img/cloud-bg.webp",
   },
   {
     title: "AUTOMATION & DIGITAL TRANSFORMATION",
     subtitle:
-      "Business workflow automation and digital transformation solutions for modern enterprises. Reducing manual effort while increasing operational efficiency.",
+      "Modernize business processes through intelligent automation and digital transformation initiatives that drive productivity, innovation, and operational excellence.",
     image: "/img/auto.webp",
     bg: "/img/auto-bg.webp",
   },
   {
     title: "TECHNOLOGY CONSULTING & INNOVATION",
     subtitle:
-      "Innovation-driven consulting services helping startups and enterprises scale with technology. Focused on strategy, growth, and future-ready digital solutions.",
+      "Partner with experts to identify growth opportunities, adopt emerging technologies, and build future-ready strategies that create lasting competitive advantage.",
     image: "/img/inno.webp",
     bg: "/img/inno-bg.webp",
   },
@@ -133,7 +133,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative h-[85vh] min-h-[720px] overflow-hidden flex items-center bg-black touch-pan-y"
+      className="relative h-auto min-h-[100svh] lg:h-[100vh] lg:min-h-[720px] overflow-visible lg:overflow-hidden flex items-start lg:items-center bg-black touch-pan-y pt-20 sm:pt-24 lg:pt-0"
       onTouchStart={(e) => (window.touchStartX = e.touches[0].clientX)}
       onTouchEnd={(e) => {
         const endX = e.changedTouches[0].clientX;
@@ -174,9 +174,9 @@ export default function Hero() {
       </div>
 
       {/* MAIN CONTENT LAYOUT CONTAINER */}
-      <div className="relative z-[5] w-full max-w-7xl mx-auto px-4 sm:px-5 md:px-6 lg:px-8 py-10 sm:py-12 md:py-14 lg:py-4 grid grid-cols-1 lg:grid-cols-2 gap-7 sm:gap-8 md:gap-10 lg:gap-6 items-center lg:text-left">
+      <div className="relative z-[5] w-full max-w-[1760px] mx-auto px-4 sm:px-5 md:px-6 lg:px-8 xl:px-10 2xl:px-12 py-10 sm:py-12 md:py-14 lg:py-4 grid grid-cols-1 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] xl:grid-cols-[minmax(0,1.08fr)_minmax(0,0.92fr)] gap-7 sm:gap-8 md:gap-10 lg:gap-10 xl:gap-14 items-center justify-center lg:text-left lg:-translate-x-3 xl:-translate-x-4 2xl:-translate-x-6">
         {/* LEFT CONTENT COLUMN */}
-        <div className="flex flex-col justify-center min-h-0 md:min-h-[500px] mt-14 md:mt-8 lg:mt-16">
+        <div className="flex flex-col justify-center min-w-0 min-h-0 md:min-h-[500px] mt-14 md:mt-8 lg:mt-12 lg:pl-6 xl:pl-10">
           <div className="flex items-center justify-center sm:justify-start gap-3 mb-4 sm:mb-5">
             <span className="  translate-x-1   text-green-400 uppercase tracking-[3px] text-sm font-semibold">
               SVELTOZ SOLUTIONS PVT. LTD.
@@ -191,7 +191,7 @@ export default function Hero() {
               transition={{ duration: 0.4 }}
             >
               {/* title */}
-              <h1 className="leading-tight max-w-[900px] text-center sm:text-left">
+              <h1 className="leading-tight max-w-[900px] min-w-0 text-center sm:text-left">
                 {/* FIRST LINE */}
                 <span className="block text-3xl sm:text-4xl md:text-5xl lg:text-4xl font-['Inter'] font-bold text-white/90">
                   {slide.title.split(" ").slice(0, -1).join(" ")}
@@ -238,14 +238,14 @@ export default function Hero() {
 
         
         {/* STATS icon */}
-<div className="mt-8 sm:mt-10 flex flex-wrap gap-6">
+<div className="mt-8 sm:mt-10 flex flex-wrap gap-6 xl:flex-nowrap xl:gap-4">
   {stats.map((item, index) => {
     const Icon = item.icon;
 
     return (
       <div
         key={index}
-        className="flex items-center gap-2 pr-2 border-r border-white/15 last:border-r-0"
+        className="flex items-center gap-2 pr-2 xl:pr-1 border-r border-white/15 last:border-r-0"
       >
         <Icon
           size={28}
@@ -267,7 +267,7 @@ export default function Hero() {
 </div>
         </div>
 
-        <div className="flex flex-col items-center lg:items-start">
+        <div className="flex flex-col items-center justify-center lg:justify-self-center w-full min-w-0">
           <AnimatePresence mode="wait">
             <motion.div
               key={slide.image}
@@ -280,7 +280,7 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -20, scale: 0.98 }}
               transition={{ duration: 0.5, ease: "easeOut" }}
-              className="relative flex w-full max-w-[420px] sm:max-w-[520px] md:max-w-[600px] flex-col items-center justify-center mt-1 sm:mt-2 md:mt-6 lg:justify-start lg:mt-12"
+             className="relative flex w-full max-w-[420px] sm:max-w-[520px] md:max-w-[600px] flex-col items-center justify-center mt-1 sm:mt-2 md:mt-6 lg:justify-start lg:mt-8 lg:ml-0 xl:-ml-4"
             >
               {/* GLOWS - These will now move/animate with the frame */}
               <div className="absolute -inset-1 sm:-inset-2 md:-inset-2 bg-green-500/25 sm:bg-green-500/30 blur-[45px] sm:blur-[70px] md:blur-[80px] rounded-full " />
@@ -290,7 +290,7 @@ export default function Hero() {
                 <img
                   src={slide.image}
                   alt={slide.title}
-                  className="h-[300px] sm:h-[360px] md:h-[410px] w-full object-cover"
+                  className="h-[240px] sm:h-[320px] md:h-[410px] w-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none" />
               </div>
@@ -298,7 +298,7 @@ export default function Hero() {
           </AnimatePresence>
 
           {/* Slider Dots Below Image */}
-          <div className="flex justify-center lg:justify-center gap-3 mt-5 sm:mt-6 w-full">
+         <div className="flex justify-center gap-3 mt-5 sm:mt-6 w-full">
             {slides.map((_, index) => (
               <button
                 key={index}
