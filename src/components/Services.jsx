@@ -276,7 +276,7 @@ const CardItem = ({ text }) => (
         <span className="text-[#22c55e]"> SERVICES</span>
       </h2>
     <p className="text-gray-400 max-w-4xl mx-auto mb-19 leading-relaxed text-justify md:text-center">
-  Discover our end-to-end technology expertise — from AI solutions to enterprise systems, cloud infrastructure, and innovation consulting.
+ Discover our end-to-end technology expertise — from intelligent AI solutions to enterprise-grade software systems, cloud infrastructure, and innovation consulting.
 </p>
 
       <div className="relative w-full max-w-[1300px] mx-auto flex items-center overflow-hidden">
