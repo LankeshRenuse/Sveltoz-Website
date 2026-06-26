@@ -88,7 +88,7 @@ export default function Hero() {
   const stats = [
     {
       icon: BadgeCheck,
-      value: "16+ Years",
+      value: "17+ Years",
       label: "Experience",
     },
     {
