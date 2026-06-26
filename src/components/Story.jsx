@@ -96,7 +96,7 @@ export default function Story() {
   <motion.li variants={lineVariants} className="flex gap-3 items-start">
     <span className="text-[#22c55e] text-xl mt-0.5 flex-shrink-0">▸</span>
     <span className="text-justify w-full block">
-      Sveltoz was founded 16 years ago to bridge technology and real-world challenges.
+      Sveltoz was founded 17 years ago to bridge technology and real-world challenges.
     </span>
   </motion.li>
 
