@@ -28,7 +28,7 @@ export default function Footer() {
       <div className="relative z-10 max-w-6xl mx-auto px-6 py-6">
         <div className="flex items-center justify-center">
           <p className="text-sm tracking-[0.15em] text-white/40 text-center">
-            © 2026 Sveltoz. All rights reserved.
+            © 2026 Sveltoz Solutions Pvt Ltd. All Rights Reserved
           </p>
         </div>
       </div>
