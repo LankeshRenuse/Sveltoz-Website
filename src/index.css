@@ -1,0 +1,688 @@
+/* ========================= */
+/* FONTS */
+/* ========================= */
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/Inter-VariableFont_opsz,wght.ttf') format('truetype');
+  font-weight: 300 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/Inter-Italic-VariableFont_opsz,wght.ttf') format('truetype');
+  font-weight: 300 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Orbitron';
+  src: url('/fonts/Orbitron-VariableFont_wght.ttf') format('truetype');
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Rajdhani';
+  src: url('/fonts/Rajdhani-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Rajdhani';
+  src: url('/fonts/Rajdhani-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Rajdhani';
+  src: url('/fonts/Rajdhani-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Rajdhani';
+  src: url('/fonts/Rajdhani-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Rajdhani';
+  src: url('/fonts/Rajdhani-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --step--1: clamp(0.75rem, 1.2vw, 0.875rem);
+  --step-0: clamp(0.875rem, 1.6vw, 1.125rem);
+  --step-1: clamp(1.125rem, 2.5vw, 1.75rem);
+  --step-2: clamp(1.75rem, 5vw, 3.75rem);
+  --step-3: clamp(2.5rem, 8vw, 7.5rem);
+  --space-xs: clamp(0.25rem, 1vh, 0.625rem);
+  --space-sm: clamp(0.5rem, 2vh, 1rem);
+  --space-md: clamp(0.75rem, 3vh, 1.5rem);
+}
+
+/* ========================= */
+/* GLOBAL */
+/* ========================= */
+
+
+/* Hide scrollbar */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Global */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* HTML */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5.625rem;
+  
+}
+
+/* Body */
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+
+  background:
+    radial-gradient(
+      circle at center,
+      #061311,
+      #020404
+    );
+
+  color: #EFFFFA;
+  font-family: "Inter", sans-serif;
+
+  /* Full viewport height */
+  min-height: 100vh;
+}
+
+/* Every section snaps into place */
+section {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+
+
+img {
+  height: auto;
+}
+
+button,
+a,
+.btn {
+  position: relative;
+  z-index: 20;
+}
+
+@media (pointer: fine) {
+  body {
+    cursor:default;
+  }
+
+  button,
+  a,
+  .btn,
+  [role="button"],
+  nav,
+  nav *,
+  .hero-action-btn,
+  .hero-dot {
+    cursor: pointer !important;
+  }
+
+  input,
+  textarea,
+  select,
+  form,
+  .contact-form {
+    cursor: auto !important;
+  }
+
+  input,
+  textarea {
+    cursor: text !important;
+  }
+
+  .input-style{
+  @apply w-full bg-black/20 border border-white/10 rounded-xl px-4 py-3 text-white outline-none transition-all duration-300 focus:border-[#22c55e] focus:shadow-[0_0_18px_rgba(34,197,94,0.25)];
+}
+}
+
+/* ========================= */
+/* HERO */
+/* ========================= */
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100dvh;
+  min-height: 34rem;
+  overflow: hidden;
+  margin-bottom: 10rem;
+  isolation: isolate;
+}
+
+.phone-hero-brand {
+  display: none;
+}
+
+#about,
+#story,
+#vision,
+#mission,
+#culture,
+#services,
+#contact {
+  overflow-x: clip;
+}
+
+#about > div,
+#story > div,
+#vision > div,
+#mission > div,
+#culture > div,
+#services > div,
+#contact > div {
+  min-width: 0;
+}
+
+#story > div > *,
+#vision > div > *,
+#mission > div > *,
+#culture > div > *,
+#contact > div > * {
+  min-width: 0;
+}
+
+#about .bg-white\/1,
+#story .bg-white\/1,
+#vision .bg-white\/1,
+#mission .bg-white\/1,
+#culture .bg-white\/1,
+#services .bg-white\/1,
+#contact .bg-white\/1 {
+  max-width: 100%;
+}
+
+#story img,
+#vision img,
+#mission img,
+#culture img {
+  min-width: 0;
+}
+
+#services .grid > * {
+  min-width: 0;
+}
+
+#services .drone-icon {
+  flex-shrink: 0;
+}
+
+
+/* glow */
+.glow-target,
+#about .bg-white\/1,
+#story .bg-white\/1,
+#vision .bg-white\/1,
+#mission .bg-white\/1,
+#culture .bg-white\/1,
+#contact .bg-white\/1,
+footer.glow-target {
+  box-shadow:
+    0 0 30px rgba(143, 255, 214, 0.08);
+
+  transition:
+    box-shadow 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.glow-target:hover,
+#about .bg-white\/1:hover,
+#story .bg-white\/1:hover,
+#vision .bg-white\/1:hover,
+#mission .bg-white\/1:hover,
+#culture .bg-white\/1:hover,
+#contact .bg-white\/1:hover {
+  border-color: rgba(34, 197, 94, 0.38);
+  box-shadow:
+    0 0 50px rgba(143, 255, 214, 0.15);
+}
+
+.hero-action-btn {
+  box-shadow:
+    0 0 24px rgba(34, 197, 94, 0.16);
+}
+
+.hero-action-btn:hover,
+.hero-dot:hover {
+  box-shadow:
+    0 0 36px rgba(34, 197, 94, 0.32);
+}
+
+.hero-slide-card {
+  box-shadow:
+    0 0 30px rgba(143, 255, 214, 0.08),
+    0 28px 80px rgba(0, 0, 0, 0.45);
+}
+
+.hero-banner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  pointer-events: none;
+  user-select: none;
+  backface-visibility: hidden;
+}
+
+/* OVERLAY */
+
+.hero-particle-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at center,
+      rgba(255, 255, 255, 0.04),
+      transparent 70%);
+}
+
+/* CANVAS */
+
+.hero canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* ========================= */
+/* BG TITLE */
+/* ========================= */
+
+.bg-title {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Inter', sans-serif;
+  font-size: 17vw;
+  font-weight: 800;
+  letter-spacing: 0.80rem;
+  color: rgba(151, 173, 169, 0.03);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* ========================= */
+/* FORM */
+/* ========================= */
+
+.input-style {
+  width: 100%;
+  padding: 0.75rem 0.875rem;
+  font-size: 1rem;
+  background: transparent;
+  color: #EFFFFA;
+  border:
+    1px solid rgba(143, 255, 214, 0.2);
+  border-radius: 0.5rem;
+  outline: none;
+  transition: 0.3s ease;
+}
+
+.input-style:focus {
+  border-color: #8fffd6;
+  box-shadow:
+    0 0 0.625rem rgba(143, 255, 214, 0.3);
+}
+
+
+
+/* ========================= */
+/* DESKTOP */
+/* ========================= */
+
+@media  (max-width: 1360px) {
+
+  .hero {
+    min-height: 100svh;
+    height: auto;
+    margin-bottom: 6rem;
+  }
+
+  nav img {
+    height: 2.8rem !important;
+  }
+
+  nav .space-x-8 > :not([hidden]) ~ :not([hidden]) {
+    margin-left: 1.4rem !important;
+  }
+
+  nav .text-sm {
+    font-size: 0.9rem !important;
+  }
+
+  #about,
+  #story,
+  #vision,
+  #mission,
+  #culture,
+  #services,
+  #contact {
+    padding-inline: 2rem !important;
+  }
+
+  #about > div,
+  #story > div,
+  #vision > div,
+  #mission > div,
+  #culture > div,
+  #contact > div {
+    gap: 2.5rem !important;
+  }
+
+  #story img,
+  #vision img,
+  #culture img,
+  #mission img {
+    width: 100%;
+    height: auto !important;
+    max-height: 24rem;
+    object-fit: cover;
+  }
+
+  #services .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 2rem !important;
+  }
+}
+
+/* ========================= */
+/* MOBILE */
+/* ========================= */
+
+@media (max-width: 768px) {
+
+  .hero {
+    height: min(48svh, 30rem);
+    min-height: 24rem;
+    margin-bottom: 0;
+  }
+
+  #about,
+  #story,
+  #vision,
+  #mission,
+  #culture,
+  #services,
+  #contact {
+    width: 100% !important;
+    padding-inline: 0.8rem !important;
+    padding-block: 3.5rem !important;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+
+  #services .grid,
+  #contact .max-w-6xl {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  #story > div,
+  #vision > div,
+  #culture > div {
+    gap: 2rem !important;
+  }
+
+  #story img,
+  #vision img,
+  #mission img,
+  #culture img,
+  #about img,
+  .hero-desc,
+  #about .bg-white\/1,
+  #story .bg-white\/1,
+  #vision .bg-white\/1,
+  #mission .bg-white\/1,
+  #culture .bg-white\/1,
+  #services .bg-white\/1,
+  #contact .bg-white\/1 {
+    width: 100% !important;
+    max-width: min(92vw, 22rem) !important;
+    margin-inline: auto;
+    box-sizing: border-box;
+  }
+
+  #story img,
+  #vision img,
+  #mission img,
+  #culture img {
+    height: 13.75rem !important;
+    max-height: none !important;
+    object-fit: cover;
+    border-radius: 0.5rem !important;
+  }
+
+  #mission img {
+    width: 100% !important;
+  }
+
+  #about .glow-target,
+  #story .glow-target,
+  #vision .glow-target,
+  #mission .glow-target,
+  #culture .glow-target,
+  #services .bg-white\/1,
+  #contact .glow-target {
+    padding: 1.25rem !important;
+  }
+
+  #story h2,
+  #vision h2,
+  #mission h2,
+  #culture h2,
+  #services h2,
+  #contact h2 {
+    font-size: 1.875rem !important;
+    line-height: 1.15 !important;
+    text-align: center !important;
+  }
+
+  #story ul,
+  #vision ul,
+  #mission ul,
+  #culture ul,
+  #mission p,
+  #culture p,
+  #contact p {
+    font-size: 0.875rem !important;
+    line-height: 1.7 !important;
+  }
+
+  #contact form .grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  #contact .glow-target h3 {
+    font-size: 1rem !important;
+    text-align: center !important;
+  }
+
+  #contact input,
+  #contact textarea,
+  #contact button {
+    width: 100% !important;
+  }
+
+  #services p,
+  #services li,
+  #services .bg-white\/1 span {
+    font-size: 0.82rem;
+    line-height: 1.7;
+  }
+}
+
+
+  /* ========================= */
+/* TABLET */
+/* ========================= */
+
+@media (min-width: 769px) and (max-width: 1024px) {
+
+  .hero {
+    min-height: 100svh;
+    height: auto;
+    margin-bottom: 5rem;
+  }
+
+  nav img {
+    height: 2.5rem !important;
+  }
+
+  nav .space-x-8 > :not([hidden]) ~ :not([hidden]) {
+    margin-left: 0.9rem !important;
+  }
+
+  nav .text-sm {
+    font-size: 0.85rem !important;
+  }
+
+  #about,
+  #story,
+  #vision,
+  #mission,
+  #culture,
+  #services,
+  #contact {
+    padding-inline: 1.5rem !important;
+  }
+
+  #about > div,
+  #story > div,
+  #vision > div,
+  #mission > div,
+  #culture > div,
+  #contact > div {
+    gap: 2rem !important;
+  }
+
+  #story img,
+  #vision img,
+  #culture img,
+  #mission img {
+    width: 100%;
+    height: auto !important;
+    max-height: 22rem;
+    object-fit: cover;
+  }
+
+  #services .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 1.5rem !important;
+  }
+
+  #contact > .max-w-6xl {
+    max-width: 42rem;
+    grid-template-columns: 1fr !important;
+  }
+
+  #contact form .grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-18px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-float {
+  animation: float 5s ease-in-out infinite;
+}
+
+
+
+/* --- PREMIUM GLOBAL TEXT HOVER EFFECTS (OPTIMIZED) --- */
+
+/* 1. Target specific properties for performance (avoid 'all') */
+h1, h2, h3, h4, h5, h6, p, li, span {
+  transition: color 0.3s ease, text-shadow 0.3s ease, transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  will-change: transform, color; /* Tells the browser to optimize these */
+}
+
+/* 2. Hover effect for Headings (Elegant green tint + tighter glow) */
+h1:hover, h2:hover, h3:hover, h4:hover, h5:hover, h6:hover {
+  color: #22c55e !important;
+  text-shadow: 0 0 12px rgba(34, 197, 94, 0.6); 
+}
+
+/* 3. Hover effect for Paragraphs (Bright white for reading focus) */
+p:hover {
+  color: #ffffff !important;
+}
+
+/* 4. Hover effect for List Items (Green text + subtle, elegant slide) */
+li:hover {
+  color: #22c55e !important;
+  transform: translateX(6px); /* Reduced from 10px to prevent layout jarring */
+}
+
+/* 5. Keep the green arrows (▸) untouched */
+li span.text-\[\#22c55e\] {
+  display: inline-block; /* Required for transforms to behave correctly on inline elements */
+  transform: none !important;
+}
